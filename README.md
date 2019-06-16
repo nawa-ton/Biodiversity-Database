@@ -22,10 +22,10 @@ There are 10 php pages so far:
 Anyway, let's finish regular user part first and it'll be easy to create admins pages later if we want to.)
 
 
-About SQL Tables:
+SQL Tables:
 - when you are in public_html, run sqlplus and then run this command "start biodiversity.sql" (refer to tutorial 9 #6)
 this will create all the tables we need.
-- Then run "start insertToTable.sql", this will insert some values into all tables, so we have some data to work on.
+- Then run "start insertdata.sql", this will insert some values into all tables, so we have some data to work on.
 - I found that we can actually merge some tables because of total participation. 
 Now, toxin is merged with produce_toxin, construction is merged with remodel, and maintenance is merged with location maintanance.
 - I also changed all ID domains from varchar to NUMBER GENERATED ALWAYS AS IDENTITY. This is like AUTO_INCREMENT in MySql.
