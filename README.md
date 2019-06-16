@@ -21,15 +21,19 @@ There are 10 php pages so far:
 (since everything else for admin is pretty much the same as regular user, I'm not sure if we need to create other pages for admin. 
 Anyway, let's finish regular user part first and it'll be easy to create admins pages later if we want to.)
 
-Css and jquery are in header.php (I tried to create subfolder for this, but not sure why it doesn't work. So, I keep them in header for now.)
-
-One last thing:
+About SQL Tables:
 - when you are in public_html, run sqlplus and then run this command "start biodiversity.sql" (refer to tutorial 9 #6)
 this will create all the tables we need.
-
-After going through this again, I found that we can actually merge some tables because of total participation.
-So, toxin is merged with produce_toxin, construction is merged with remodel, and maintenance is merged with location maintanance.
-
+- I found that we can actually merge some tables because of total participation. 
+Now, toxin is merged with produce_toxin, construction is merged with remodel, and maintenance is merged with location maintanance.
+- I also changed all ID domains from varchar to NUMBER GENERATED ALWAYS AS IDENTITY. This is like AUTO_INCREMENT in MySql.
+It will generate IDs automatically by incrementing by 1.
 - if you want to clear delete all tables in one go. You can run this command "start dropalltables.sql"
 
-Checklist: https://docs.google.com/spreadsheets/d/1aRqdp6cg0UCQVjWawG1vqUn3zZLzOk1cYETT6WzaGr8/edit#gid=0
+
+CSS & Jquery:
+- Css and jquery are in header.php 
+(I tried to create subfolder for this, but not sure why it doesn't work. So, I keep them in header for now.)
+
+Project Checklist: 
+https://docs.google.com/spreadsheets/d/1aRqdp6cg0UCQVjWawG1vqUn3zZLzOk1cYETT6WzaGr8/edit#gid=0
