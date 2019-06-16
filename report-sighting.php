@@ -35,8 +35,21 @@
 			<input type="text" name="Habitat">
 		</div>
 
+		<div>
+			<label>Dependence(insert other organism that this one depends on)</label>
+			<input type="text" name="dependee">
+		</div>
+
 		<div id = "insertanimal" class = "insertOrganism">
 			<!-- for animal -->
+			<div>
+				<label>Predator/Prey</label>
+				<select id="eat" name="eat">
+					<option value="neither" selected="selected">Neither</option>
+				   	<option value="predator">Predator</option>
+				    <option value="prey">Prey</option>
+				</select>
+			</div>
 			<div>
 				<label>Diet</label>
 				<input type="text" name="Diet">

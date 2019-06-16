@@ -36,11 +36,6 @@
 			<label>Rarity</label>
 			<input type="text" name="Rarity">
 		</div>
-		<div>
-			<label>Sighting Location</label>
-			<input type="text" name="Location_Name">
-		</div>
-
 		<div id = "searchFungusEdibility">
 			<label>Edibility</label>
 				<select id="edibility" name="edibility">
@@ -51,7 +46,7 @@
 		</div> <!-- end div searchFungusEdibility-->
 
 		<div>
-			<label>Sighting Location</label>
+			<label>Location</label>
 			<input type="text" name="Location_Name">
 		</div>
 

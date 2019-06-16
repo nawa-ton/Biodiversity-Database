@@ -35,7 +35,7 @@
 			<input type="text" name="Rarity">
 		</div>
 		<div>
-			<label>Sighting Location</label>
+			<label>Location</label>
 			<input type="text" name="Location_Name">
 		</div>
 
