@@ -5,7 +5,7 @@
 4. You can play around by clicking the links. 
 To see the page flow, go to https://docs.google.com/drawings/d/1ZrqPRGDGm7kvMzRPUnyFfhQtQUIfDNNONw0GriSln-g/edit?fbclid=IwAR3CNsVhBPx3z6J1f2s0J_l-2tvYwUdhwnT6TURPaBvrO9x_vbKGEModMB0
 
-There are 9 php pages so far:
+There are 10 php pages so far:
 - guest-homepage.php: allow guest user to make queries on organism
 - register.php: allow user without account to create one
 - login.php: allow user with account to log in
@@ -15,6 +15,7 @@ There are 9 php pages so far:
 
 - edit-delete.php: allow user to select edit or delete option
 - edit-single.php: allow user to edit the option they selected in edit-delete.php
+- update-location-condition.php: allow user to add construction or maintenance for sighting location
 - your-account.php: allow users to edit their info
 - admin-users-account.php: allow admin user to view/delete users account
 (since everything else for admin is pretty much the same as regular user, I'm not sure if we need to create other pages for admin. 
