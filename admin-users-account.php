@@ -12,8 +12,8 @@
 		</div>
 
 		<div>
-			<label>User Name</label>
-			<input type="text" name="UserName">
+			<label>Name</label>
+			<input type="text" name="Name">
 		</div>
 
 		<div>

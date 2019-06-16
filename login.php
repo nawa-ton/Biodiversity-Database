@@ -6,8 +6,8 @@
 	<form id="loginForm" method="POST" action="login.php">
 		
 		<div>
-			<label>User ID</label>
-			<input type="text" name="UserID">
+			<label>Email</label>
+			<input type="text" name="Email">
 		</div>
 		<div>
 			<label>Password</label>

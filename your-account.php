@@ -5,12 +5,6 @@
 	<!-- ******** Add message to confirm successful update *********-->
 
 	<form id="updateAccountForm" method="POST" action="your-account.php">
-
-		<div>
-			<label>User ID</label>
-			<input type="text" name="UserID" value="Get info from database">
-		</div>
-		
 		<div>
 			<label>Name</label>
 			<input type="text" name="Name" value="Get info from database">
@@ -28,7 +22,7 @@
 
 	</form>
 
-	<p class="remark">display date join here</p>
+	<p class="remark">display user ID and date join here</p>
 
 
 <?php include "footer-user.php"; ?>

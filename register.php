@@ -5,12 +5,6 @@
 	<!-- ******** Add message to confirm successdul update. With log in link *********-->
 
 	<form id="registerForm" method="POST" action="register.php">
-
-		<div>
-			<label>User ID</label>
-			<input type="text" name="UserID">
-		</div>
-		
 		<div>
 			<label>Name</label>
 			<input type="text" name="Name">

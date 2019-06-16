@@ -3,6 +3,7 @@
 	<ul id="useraction">
 		<li><a href="report-sighting.php">Report Sighting</a></li>
 		<li><a href="edit-delete.php">Edit/Delete Sighting</a></li>
+		<li><a href="update-location-condition.php">Update Location Condition</a></li>
 		<li><a href="your-account.php">Your Account</a></li>
 		<li><a href="guest-homepage.php">Log Out</a></li>
 	</ul>

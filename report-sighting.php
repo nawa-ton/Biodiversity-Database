@@ -15,10 +15,6 @@
 			</select>
 		</div>
 		<div>
-			<label>Report ID</label>
-			<input type="text" name="ReportID">
-		</div>
-		<div>
 			<label>Name</label>
 			<input type="text" name="CommonName">
 		</div>
@@ -70,7 +66,7 @@
 			</div>
 
 			<div>
-				<label>Calories</label>
+				<label>Calories per 100 gram</label>
 				<input type="text" name="Calories">
 			</div>
 			<div>
@@ -87,7 +83,7 @@
 		<div id = "insertfungus" class = "insertOrganism">
 			<!-- for animal -->
 			<div>
-				<label>Size</label>
+				<label>Size (cm.)</label>
 				<input type="text" name="Size">
 			</div>
 			<div>
@@ -132,7 +128,7 @@
 		</div> <!-- end div insertFungus-->
 
 		<div>
-			<label>Sighting Location</label>
+			<label>Location Name</label>
 			<input type="text" name="Location_Name">
 		</div>
 
@@ -146,10 +142,6 @@
 		</div>
 
 		<div id = "insertconstruction">
-			<div>
-				<label>Construction ID</label>
-				<input type="text" name="ConstructionID">
-			</div>
 			<div>
 				<label>Remodel Date</label>
 				<input type="text" name="ExpectedDate">
@@ -166,10 +158,6 @@
 		</div> <!-- end div insertconstruction-->
 
 		<div id = "insertmaintenance">
-			<div>
-				<label>Maintenance ID</label>
-				<input type="text" name="MaintenanceID">
-			</div>
 			<div>
 				<label>Schedule</label>
 				<input type="text" name="Schedule">

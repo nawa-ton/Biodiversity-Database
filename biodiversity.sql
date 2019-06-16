@@ -1,5 +1,5 @@
 CREATE TABLE users(	
-	UserID VARCHAR(10),
+	UserID NUMBER GENERATED ALWAYS AS IDENTITY,
 	Name VARCHAR(30) NOT NULL,
 	Email VARCHAR(40) NOT NULL,
 	Password VARCHAR(10) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE animal(
 	Species VARCHAR(30),
 	PrimaryDiet VARCHAR(20) NOT NULL,
 	Aggresiveness VARCHAR(10),
-	Health VARCHAR(20) NOT NULL,
+	Health VARCHAR(20),
 	Sound VARCHAR(30),
 	PRIMARY KEY (Species),
 	FOREIGN KEY (Species) REFERENCES Organism
@@ -98,7 +98,7 @@ CREATE TABLE location(
 
 CREATE TABLE location_Maintenance(	
 	LocationName VARCHAR(30),
-	MaintenanceID VARCHAR(10),
+	MaintenanceID NUMBER GENERATED ALWAYS AS IDENTITY,
 	Schedule Date,
 	Task VARCHAR(30),
 	PRIMARY KEY (LocationName, MaintenanceID),
@@ -108,7 +108,7 @@ CREATE TABLE location_Maintenance(
 
 CREATE TABLE location_Remodel(	
 	LocationName VARCHAR(30),
-	ConstructionID VARCHAR(10),
+	ConstructionID NUMBER GENERATED ALWAYS AS IDENTITY,
 	Infrastructure VARCHAR(30),
 	ExpectedDate Date,
 	RemodelDate Date,
@@ -117,15 +117,13 @@ CREATE TABLE location_Remodel(
 );
 
 CREATE TABLE sighting_Report(	
-	SID VARCHAR(10),
+	SID NUMBER GENERATED ALWAYS AS IDENTITY,
 	LocationName VARCHAR(30) NOT NULL,
 	Species  VARCHAR(30),
-	OrganismName  VARCHAR(30) NOT NULL,
-	UserID VARCHAR(10),
-	ReportDate VARCHAR(20) NOT NULL,
+	UserID NUMBER,
+	ReportDate TIMESTAMP DEFAULT SYSTIMESTAMP,
 	PRIMARY KEY (SID),
 	FOREIGN KEY (UserID) REFERENCES Users,
 	FOREIGN KEY (LocationName) REFERENCES Location,
-	FOREIGN KEY (Species) REFERENCES Organism,
-	FOREIGN KEY (OrganismName) REFERENCES Organism
+	FOREIGN KEY (Species) REFERENCES Organism
 );
