@@ -5,7 +5,7 @@ drop table produces_Toxin;
 
 drop table fungus;
 
-drop table plant_Fruits;
+drop table plant_Fruit;
 
 drop table plant;
 
@@ -23,6 +23,6 @@ drop table sighting_Report;
 
 drop table location;
 
-drop table users;
+drop table user;
 
 drop table organism;

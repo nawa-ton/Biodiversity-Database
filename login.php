@@ -28,7 +28,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 //Check if the values exist in the database 
-$query = "SELECT * FROM `users` WHERE email='$email' and password='$hashed_password'";
+$query = "SELECT * FROM `user` WHERE email='$email' and password='$hashed_password'";
 $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 
 //If the posted values are equal to the database values, then session will be created for the user.

@@ -1,9 +1,9 @@
-CREATE TABLE users(	
-	UserID NUMBER GENERATED ALWAYS AS IDENTITY,
+CREATE TABLE user(	
+	UserID INTEGER AUTO_INCREMENT,
 	Name VARCHAR(30) NOT NULL,
 	Email VARCHAR(40) NOT NULL,
 	Password VARCHAR(10) NOT NULL,
-	joindate TIMESTAMP DEFAULT SYSTIMESTAMP,
+	joindate TIMESTAMP DEFAULT  CURRENT_TIMESTAMP,
 	PRIMARY KEY (UserID),
 	UNIQUE (Email)
 );
@@ -22,7 +22,7 @@ CREATE TABLE organism_Variation(
 	PrimaryColor VARCHAR(10) NOT NULL,
 	Rarity VARCHAR(20),
 	PRIMARY KEY (Species, PrimaryColor),
-	FOREIGN KEY (Species) REFERENCES organism
+	FOREIGN KEY (Species) REFERENCES organism (species)
 );
 
 CREATE TABLE fungus(	
@@ -32,7 +32,7 @@ CREATE TABLE fungus(
 	FungusSize INTEGER,
 	Smell VARCHAR(20),
 	PRIMARY KEY (Species),
-	FOREIGN KEY (Species) REFERENCES organism
+	FOREIGN KEY (Species) REFERENCES organism(species)
 );
 
 
@@ -43,7 +43,7 @@ CREATE TABLE produces_Toxin(
 	Toxicity VARCHAR(10) NOT NULL,
 	Treatment VARCHAR(50),
 	PRIMARY KEY (Species, Chemical),
-	FOREIGN KEY (Species) REFERENCES Fungus
+	FOREIGN KEY (Species) REFERENCES Fungus(species)
 );
 
 CREATE TABLE plant(	
@@ -51,15 +51,15 @@ CREATE TABLE plant(
 	FlowerColor VARCHAR(20) DEFAULT 'Non-flowering', 
 	Calories VARCHAR(50) DEFAULT 'Inedible', 
 	PRIMARY KEY (Species),
-	FOREIGN KEY (Species) REFERENCES Organism
+	FOREIGN KEY (Species) REFERENCES Organism(species)
 );
 
-CREATE TABLE plant_Fruits(	
+CREATE TABLE plant_Fruit(	
 	Species VARCHAR(30), 
 	FruitName VARCHAR(30), 
 	Calories VARCHAR(50) DEFAULT 'Inedible', 
 	PRIMARY KEY (Species, FruitName),
-	FOREIGN KEY (Species) REFERENCES Plant
+	FOREIGN KEY (Species) REFERENCES Plant(species)
 );
 
 CREATE TABLE animal(	
@@ -69,7 +69,7 @@ CREATE TABLE animal(
 	Health VARCHAR(20),
 	Sound VARCHAR(30),
 	PRIMARY KEY (Species),
-	FOREIGN KEY (Species) REFERENCES Organism
+	FOREIGN KEY (Species) REFERENCES Organism(species)
 );
 
 CREATE TABLE organism_Dependence( 	
@@ -98,32 +98,32 @@ CREATE TABLE location(
 
 CREATE TABLE location_Maintenance(	
 	LocationName VARCHAR(30),
-	MaintenanceID NUMBER GENERATED ALWAYS AS IDENTITY,
+	MaintenanceID INTEGER AUTO_INCREMENT,
 	Schedule Date,
 	Task VARCHAR(30),
-	PRIMARY KEY (LocationName, MaintenanceID),
-	FOREIGN KEY (LocationName) REFERENCES Location
+	PRIMARY KEY (MaintenanceID),
+	FOREIGN KEY (LocationName) REFERENCES Location(locationName)
 );
 
 
 CREATE TABLE location_Remodel(	
 	LocationName VARCHAR(30),
-	ConstructionID NUMBER GENERATED ALWAYS AS IDENTITY,
+	ConstructionID INTEGER AUTO_INCREMENT,
 	Infrastructure VARCHAR(30),
 	ExpectedDate Date,
 	RemodelDate Date,
 	PRIMARY KEY (ConstructionID),
-	FOREIGN KEY (LocationName) REFERENCES Location
+	FOREIGN KEY (LocationName) REFERENCES Location(locationName)
 );
 
 CREATE TABLE sighting_Report(	
-	SID NUMBER GENERATED ALWAYS AS IDENTITY,
+	SID INTEGER AUTO_INCREMENT,
 	LocationName VARCHAR(30) NOT NULL,
 	Species  VARCHAR(30),
-	UserID NUMBER,
-	ReportDate TIMESTAMP DEFAULT SYSTIMESTAMP,
+	UserID INTEGER,
+	ReportDate TIMESTAMP DEFAULT  CURRENT_TIMESTAMP,
 	PRIMARY KEY (SID),
-	FOREIGN KEY (UserID) REFERENCES Users,
-	FOREIGN KEY (LocationName) REFERENCES Location,
-	FOREIGN KEY (Species) REFERENCES Organism
+	FOREIGN KEY (UserID) REFERENCES user(userid),
+	FOREIGN KEY (LocationName) REFERENCES Location(locationname),
+	FOREIGN KEY (Species) REFERENCES Organism(species)
 );

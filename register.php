@@ -38,7 +38,7 @@
 		}
 		
 		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO `users` (name, email,password) 
+        $query = "INSERT INTO `user` (name, email,password) 
 			VALUES ('$name', '$email', $hashed_password')";
         $result = mysqli_query($connection, $query);
         if($result){

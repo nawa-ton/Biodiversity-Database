@@ -1,10 +1,10 @@
-insert into Users (Name,	Email ,Password) values ('Adam Smith', 'asmith@gmail.com', '123abc');
+insert into User (Name,	Email ,Password) values ('Adam Smith', 'asmith@gmail.com', '123abc');
 
-insert into Users (Name,	Email ,Password) values ('Betty White', 'bwhite@gmail.com', '123abc');
+insert into User (Name,	Email ,Password) values ('Betty White', 'bwhite@gmail.com', '123abc');
 
-insert into Users (Name,	Email ,Password) values ('Cinda Zhou', 'czhou@hotmail.com', '123abc');
+insert into User (Name,	Email ,Password) values ('Cinda Zhou', 'czhou@hotmail.com', '123abc');
 
-insert into Users (Name,	Email ,Password) values ('Minnie Lee', 'mlee@hotmail.com', '123abc');
+insert into User (Name,	Email ,Password) values ('Minnie Lee', 'mlee@hotmail.com', '123abc');
 
 
 insert into Organism values ('Sciurus carolinensis', 'Eastern Grey Squirrel', 'hardwood forests');
@@ -55,9 +55,9 @@ insert into Plant values('Taraxacum officinale', 'yellow', 45);
 Insert into Plant values('Quercus alba', 'green', 'inedible'); 
 
 
-Insert into Plant_Fruits values('Taraxacum officinale', 'dandelion fruit', 45);
+Insert into Plant_Fruit values('Taraxacum officinale', 'dandelion fruit', 45);
 
-Insert into Plant_Fruits values('Quercus alba', 'acorn', 143); 
+Insert into Plant_Fruit values('Quercus alba', 'acorn', 143); 
 
 
 insert into Fungus values('Amanita phalloides', 'inedible', 'smooth', 15, 'overpowering');

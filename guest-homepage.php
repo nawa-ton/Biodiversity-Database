@@ -6,9 +6,7 @@
 	</ul>
 
 	<h2>Search Organism</h2>
-
-
-	<form id="viewForm" method="POST" action="index.php">
+	<form id="viewForm" method="POST" action="guest-homepage.php">
 		<div>
 			<label>Organism Type</label>
 			<select id="vieworganismtype" name="vieworganismtype">
@@ -27,63 +25,72 @@
 			<input type="text" name="Species">
 		</div>
 		<div>
-			<label>Primary Color</label>
-			<input type="text" name="PrimaryColor">
-		</div>
-		<div>
-			<label>Rarity</label>
-			<input type="text" name="Rarity">
-		</div>
-		<div>
-			<label>Location</label>
-			<input type="text" name="Location_Name">
+			<label>Habitat</label>
+			<input type="text" name="Habitat">
 		</div>
 
-		<div id = "searchFungusEdibility">
+
+		<!-- <div id = "searchFungusEdibility">
 			<label>Edibility</label>
 				<select id="edibility" name="edibility">
 				   	<option value="inedible" selected="selected">Inedible</option>
 				    <option value="edible">Edible</option>
 				</select>
 			</div>
-		</div> <!-- end div searchFungusEdibility-->
+		</div> 
+		end div searchFungusEdibility -->
 
 
-		<input class ="button" type="submit" value="Submit" name="viewsubmit">
+		<input class ="button" type="submit" value="Submit" name="submit">
 	</form>
+	
+<?php
+	include('connect.php');
+	if(isset($_POST['submit'])){
+
+		$viewtype = $_POST['vieworganismtype'];
+		if($viewtype=="all"){
+			$viewtype="organism";
+		}
+		$organismname = (!empty($_POST['OrganismName']) ? $connection->real_escape_string($_POST['OrganismName']) : false);
+        $species = (!empty($_POST['Species']) ? $connection->real_escape_string($_POST['Species']) : false);
+        $habitat = (!empty($_POST['Habitat']) ? $connection->real_escape_string($_POST['Habitat']) : false);        
+
+		$query = "SELECT * FROM $viewtype WHERE 1=1";
+		if($organismname){
+			$query.=" AND organismname = '".$organismname."'";
+		}
+		if($species){
+			$query.=" AND species = '".$species."'";
+		}
+		if($habitat){
+			$query.=" AND habitat = '".$habitat."'";
+		}
+		$response = mysqli_query($connection, $query);
+		
+		if($response){
+			echo '<table align ="left"
+			cellspacing = "5" cell padding = "8">
+			<tr>
+			<td align="left"><b>Species</b></td>
+			<td align="left"><b>Name</b></td>
+			<td align="left"><b>Habitat</b></td>
+			</tr>';
+			while($row=mysqli_fetch_array($response)){
+				echo'<tr><td align="left">'.
+				$row['Species'].'</td><td align="left">'.
+				$row['OrganismName'].'</td><td align="left">'.
+				$row['Habitat'].'</td><td align="left">';	
+				echo'</tr>';
+			}
+			echo'</table>';
+		} else {
+			echo "Couldn't issue database query";
+			echo mysqli_error($connection);
+		}
+		mysqli_close($connection);
+	}
+?>
 
 
-	<div class="viewResults">
-
-		<p class="remark">Note: This is only to give the idea about layout of the table. The actual table shold be appeared only after submitting query</p>
-		<h2>Results</h2>
-
-		<!-- ********  This is just a placeholder table. To get data from the database, refer to function printResult in oracle-test.php (tutorial 7) ******* -->
-
-		<table>
-			<thead>
-				<tr>
-					<th>Column Name</th>
-					<th>Column Name</th>
-					<th>Column Name</th>
-					<th>Column Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-				</tr>
-				<tr>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-<?php include "footer.php"; ?>
+<?php include "footer-guest.php"; ?>
