@@ -58,13 +58,13 @@
 
 		$query = "SELECT * FROM $viewtype WHERE 1=1";
 		if($organismname){
-			$query.=" AND organismname = '".$organismname."'";
+			$query.=" AND organismname LIKE '%$organismname%'";
 		}
 		if($species){
-			$query.=" AND species = '".$species."'";
+			$query.=" AND species = '%$species%'";
 		}
 		if($habitat){
-			$query.=" AND habitat = '".$habitat."'";
+			$query.=" AND habitat = '%$habitat%'";
 		}
 		$response = mysqli_query($connection, $query);
 		
