@@ -27,10 +27,24 @@
 			<label>Habitat</label>
 			<input type="text" name="Habitat">
 		</div>
+		<div>
+			<label>Primary Color</label>
+			<input type="text" name="PrimaryColor">
+		</div>
+		<div>
+			<label>Rarity</label>
+			<input type="text" name="Rarity">
+		</div>
 
+		<label>Show Columns:</label>
+		<input type="checkbox" name="cspecies" checked>Species		
+ 	 	<input type="checkbox" name="cname" checked>Name		
+  		<input type="checkbox" name="chabitat" checked> Habitat		
+		<input type="checkbox" name="cprimarycolor" checked> Primary Color
+		<input type="checkbox" name="crarity" checked> Rarity<br><br>		
 
 		<input class ="button" type="submit" value="Submit" name="organismsubmit">
 	</form>
-<?php include "get-organism-query.php";?>
+<?php include "organism-query.php";?>
 
 <?php include "footer-guest.php"; ?>

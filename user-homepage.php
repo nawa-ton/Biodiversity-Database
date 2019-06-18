@@ -35,6 +35,6 @@
 		<input class ="button" type="submit" value="Submit" name="organismsubmit">
 	</form>
 
-	<?php include "get-organism-query.php";?>
+	<?php include "organism-query.php";?>
 	
 <?php include "footer.php"; ?>
