@@ -45,6 +45,8 @@ insert into Organism values ('Larus glaucescens', 'Glaucus-winged gull', 'near b
 
 insert into Organism values ('Glaucomys sabrinus', 'Northern flying squirrel', 'coniferous forests');
 
+insert into Organism values ('Equus magicalus', 'Unicorn', 'anywhere');
+
 
 insert into Organism_Variation values ('Sciurus carolinensis', 'grey', 'Common');
 
@@ -73,6 +75,22 @@ insert into Organism_Variation values ('Amanita phalloides', 'grey', 'common');
 insert into Organism_Variation values ('Procyon lotor', 'grey and black', 'common');
 
 insert into Organism_Variation values ('Procyon lotor', 'reddish', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'grey', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'brown', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'green', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'yellow', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'white', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'rainbow', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'grey and black', 'rare');
+
+insert into Organism_Variation values ('Equus magicalus', 'reddish', 'rare');
 
 
 
@@ -210,3 +228,17 @@ insert into Sighting_Report (LocationName, Species, UserID) values ('Norquay Par
 insert into Sighting_Report (LocationName, Species, UserID) values ('Norquay Park', 'Psilocybe semilanceata', 3);
 
 insert into Sighting_Report (LocationName, Species, UserID) values ('Woody Forest', 'Armillaria mellea', 3);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('Sally Lake', 'Equus magicalus', 1);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('Lumin Stream', 'Equus magicalus', 2);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('Woody Forest', 'Equus magicalus', 3);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('High Rocks', 'Equus magicalus', 2);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('Green Kiosk', 'Equus magicalus', 1);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('Norquay Park', 'Equus magicalus', 4);
+
+insert into Sighting_Report (LocationName, Species, UserID) values ('Central Garden', 'Equus magicalus', 4);
