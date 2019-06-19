@@ -4,11 +4,8 @@
 		<li><a href="register.php">Register</a></li>
 		<li><a href="login.php">Log in</a></li>
 	</ul>
-
 	<h2>Search Organism</h2>
-
-
-	<form id="viewForm" method="POST" action="index.php">
+	<form id="viewForm" method="POST" action="guest-homepage.php">
 		<div>
 			<label>Organism Type</label>
 			<select id="vieworganismtype" name="vieworganismtype">
@@ -27,6 +24,10 @@
 			<input type="text" name="Species">
 		</div>
 		<div>
+			<label>Habitat</label>
+			<input type="text" name="Habitat">
+		</div>
+		<div>
 			<label>Primary Color</label>
 			<input type="text" name="PrimaryColor">
 		</div>
@@ -34,56 +35,16 @@
 			<label>Rarity</label>
 			<input type="text" name="Rarity">
 		</div>
-		<div>
-			<label>Location</label>
-			<input type="text" name="Location_Name">
-		</div>
 
-		<div id = "searchFungusEdibility">
-			<label>Edibility</label>
-				<select id="edibility" name="edibility">
-				   	<option value="inedible" selected="selected">Inedible</option>
-				    <option value="edible">Edible</option>
-				</select>
-			</div>
-		</div> <!-- end div searchFungusEdibility-->
+		<label>Show Columns:</label>
+		<input type="checkbox" name="cspecies" checked>Species		
+ 	 	<input type="checkbox" name="cname" checked>Name		
+  		<input type="checkbox" name="chabitat" checked> Habitat		
+		<input type="checkbox" name="cprimarycolor" checked> Primary Color
+		<input type="checkbox" name="crarity" checked> Rarity<br><br>		
 
-
-		<input class ="button" type="submit" value="Submit" name="viewsubmit">
+		<input class ="button" type="submit" value="Submit" name="organismsubmit">
 	</form>
+<?php include "organism-query.php";?>
 
-
-	<div class="viewResults">
-
-		<p class="remark">Note: This is only to give the idea about layout of the table. The actual table shold be appeared only after submitting query</p>
-		<h2>Results</h2>
-
-		<!-- ********  This is just a placeholder table. To get data from the database, refer to function printResult in oracle-test.php (tutorial 7) ******* -->
-
-		<table>
-			<thead>
-				<tr>
-					<th>Column Name</th>
-					<th>Column Name</th>
-					<th>Column Name</th>
-					<th>Column Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-				</tr>
-				<tr>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-					<td>Placeholder</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-<?php include "footer.php"; ?>
+<?php include "footer-guest.php"; ?>
