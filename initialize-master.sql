@@ -204,7 +204,7 @@ insert into Organism values ('Larus glaucescens', 'Glaucus-winged gull', 'near b
 
 insert into Organism values ('Glaucomys sabrinus', 'Northern flying squirrel', 'coniferous forests');
 
-insert into Organism values ('Equus magicalus', 'Unicorn', 'anywhere');
+insert into Organism values ('Equus magicalus', 'Unicorn', 'everywhere');
 
 insert into Organism values ('Equus llamas', 'Magic Llama', 'meadows');
 
@@ -304,6 +304,8 @@ insert into Animal_Eats values ('Equus magicalus', 'Passer domesticus');
 insert into Animal_Eats values ('Equus magicalus', 'Procyon lotor');
 insert into Animal_Eats values ('Equus magicalus', 'Salvelinus fontinalis');
 insert into Animal_Eats values ('Equus magicalus', 'Sciurus carolinensis');
+insert into Animal_Eats values ('Equus magicalus', 'Equus llamas');
+insert into Animal_Eats values ('Equus magicalus', 'Equus taurus');
 
 insert into Animal_Eats values ('Equus magicalus', 'Taraxacum officinale');
 insert into Animal_Eats values ('Equus magicalus', 'Rosa nutkana');
