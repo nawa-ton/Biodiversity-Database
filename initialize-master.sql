@@ -253,8 +253,6 @@ insert into Organism_Variation values ('Equus magicalus', 'white', 'rare');
 
 insert into Organism_Variation values ('Equus magicalus', 'rainbow', 'rare');
 
-insert into Organism_Variation values ('Equus magicalus', 'grey and black', 'rare');
-
 insert into Organism_Variation values ('Equus magicalus', 'reddish', 'rare');
 
 insert into Organism_Variation values ('Equus magicalus', 'black', 'rare');
