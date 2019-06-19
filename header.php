@@ -95,15 +95,17 @@
 			$(document).ready(function(){
 
 
-				//display input fields that correspond to user's selection
+				//display input fields that correspond to user/guest selection
 				$(function(){
-					$("#searchFungusEdibility").hide();
+					$("#insertaggregation").hide();
 
-					$("#vieworganismtype").change(function(){
-						if($(this).val() == 'fungus'){
-							$("#searchFungusEdibility").show();
+					$("#querytype").change(function(){
+						if($(this).val() == 'aggregation'){
+							$("#insertselection").hide();
+							$("#insertaggregation").show();
 						}else{
-							$("#searchFungusEdibility").hide();
+							$("#insertselection").show();
+							$("#insertaggregation").hide();
 						}
 					})
 				});

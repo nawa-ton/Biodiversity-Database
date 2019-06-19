@@ -36,7 +36,7 @@
 		</div>
 
 		<div>
-			<label>Dependence(insert other organism that this one depends on)</label>
+			<label>Dependence (enter organism that this depends on)</label>
 			<input type="text" name="dependee">
 		</div>
 
@@ -94,7 +94,7 @@
 		</div> <!-- end div insertPlant-->
 
 		<div id = "insertfungus" class = "insertOrganism">
-			<!-- for animal -->
+			<!-- for insertfungus -->
 			<div>
 				<label>Size (cm.)</label>
 				<input type="text" name="Size">
