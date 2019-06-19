@@ -111,15 +111,23 @@
 			$(document).ready(function(){
 
 
-				//display input fields that correspond to user's selection
+				//display input fields that correspond to user/guest selection
 				$(function(){
-					$("#searchFungusEdibility").hide();
-
-					$("#vieworganismtype").change(function(){
-						if($(this).val() == 'fungus'){
-							$("#searchFungusEdibility").show();
-						}else{
-							$("#searchFungusEdibility").hide();
+					$("#insertaggregation, #insertdivision").hide();
+					$("#querytype").change(function(){
+						if($(this).val() == 'selection'){
+							$("#insertselection").show();
+							$("#insertaggregation").hide();
+							$("#insertdivision").hide();
+						}else if($(this).val() == 'aggregation'){
+							$("#insertselection").hide();
+							$("#insertaggregation").show();
+							$("#insertdivision").hide();
+							}	
+						else{
+							$("#insertselection").hide();
+							$("#insertaggregation").hide();
+							$("#insertdivision").show();
 						}
 					})
 				});
