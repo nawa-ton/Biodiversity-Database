@@ -98,7 +98,7 @@
 		$query.=$selection;
 		$query.=$groupselection;
 
-echo "table query: ".$query;
+		//echo "table query: ".$query;
 
 		$result = mysqli_query($connection, $query);
 		
@@ -114,15 +114,14 @@ echo "table query: ".$query;
 		$countresultquery.=$selection;
 		$countresult=mysqli_query($connection,$countresultquery);
 		$countrow =mysqli_fetch_array($countresult);
-		echo "Results Found: ";
-		echo '<td>'.$countrow['count']."</td>";
+		echo "<p class='confirmmsg'>Results Found: ". $countrow['count']."</p>";
 
 // echo "counter query: ".$countresultquery;
 
 		//print out result table 
 		if($result){
-			$columnlabels='<table align ="left"
-			cellspacing = "5" cell padding = "8"><tr>';
+			$columnlabels='<table class="resulttable" align ="left"
+			cellspacing = "5" cell padding = "8"><tr style="background-color: #bebdff">';
 
 			//display the selected columns if query is selection or division
 			if($_POST['querytype']!="aggregation"){
