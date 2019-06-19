@@ -1,9 +1,11 @@
 <?php
-include('connect.php');
+include 'connect.php';
 
 $connection = OpenCon();
 
 if(isset($_POST['createsubmit'])){
+
+$location = (!empty($_POST['Location_Name']) ? $connection->real_escape_string($_POST['Location_Name']) : false);
 
  // general organism values to organism table
  $organismname = (!empty($_POST['CommonName']) ? $connection->real_escape_string($_POST['CommonName']) : false);
@@ -15,22 +17,33 @@ if(isset($_POST['createsubmit'])){
  $organismtype = $_POST['organismtype'];
 
 
-if($organismname == false or $species == false or $primarycolor == false) {
-echo "A required field is empty. Please enter a valid Report Sighting.";
+if($organismname == false or $species == false or $primarycolor == false or $location == false) {
+echo "<font color=red size='4pt'> A required field is empty. Please enter a valid Report Sighting.";
 } else {
 
-// check if organism is already in organism_variation
-// if $query == true, organism already in database, just need to add sighting report
-$query = "SELECT count(*) FROM organism_variation WHERE Species='$species' and PrimaryColor='$primarycolor')";
+  // check if organism is already in organism table
+  $query = "SELECT Species FROM organism WHERE Species='$species'";
 
-if ($connection->query($query) > 0) {
-	echo "Organism already listed. Sighting location report added.";
-}
+  if ($connection->query($query)->num_rows > 0) {
+    // check if organism variation is already in organism_variation
+    // if $query > 0, need to check if variation is already in organism_variation
+    $query = "SELECT PrimaryColor FROM organism_Variation WHERE Species='$species'AND PrimaryColor='$primarycolor'";
 
-// new organism entry
-else {
+    if ($connection->query($query)->num_rows > 0) {
+	     echo "<font color=blue size='3pt'> Organism already exist. Sighting location report added.";
+     } else {
+       // insert into organism_Variation
+       echo "<font color=blue size='3pt'> Organism already exist but new variation added. Sighting location report added.";
+       $org_variation_query = "INSERT INTO organism_Variation (Species, PrimaryColor, Rarity) VALUES ('$species', '$primarycolor', '$rarity')";
+       $insert_org_variation_query =  mysqli_query($connection,$org_variation_query);
+       if(! $insert_org_variation_query ) {
+       	die('Could not enter data into list of organism variations: ' . mysqli_error($connection));
+       }
 
-// insert into organism
+     }
+   } else {
+
+  // add new organism
 $organism_query = "INSERT INTO organism (Species, OrganismName, Habitat) VALUES ('$species', '$organismname', '$habitat')";
 $insert_organism_query = mysqli_query($connection,$organism_query);
 
@@ -38,27 +51,27 @@ if(! $insert_organism_query ) {
 	die('Could not enter data into list of organisms : ' . mysqli_error($connection));
 }
 
-
-// insert into organism_Variation
 $org_variation_query = "INSERT INTO organism_Variation (Species, PrimaryColor, Rarity) VALUES ('$species', '$primarycolor', '$rarity')";
 $insert_org_variation_query =  mysqli_query($connection,$org_variation_query);
-
-
 if(! $insert_org_variation_query ) {
-	die('Could not enter data into list of organism variations: ' . mysqli_error($connection));
+ die('Could not enter data into list of organism variations: ' . mysqli_error($connection));
 }
 
+
 // insert any dependence into dependence table
+if(!empty($dependee)){
 $dependee_query = "INSERT INTO organism_Dependence (Species_Dependant, Species_Dependee) VALUES ('$species', '$dependee')";
 $insert_dependee_query =  mysqli_query($connection,$dependee_query);
 
 if(! $insert_dependee_query ) {
 	echo "Could not enter data into list of dependees: $dependee not found in list of existing organisms";
 }
+}
 
 // add attributes unique to different types of organismname
  $organismtype = $_POST['organismtype'];
 
+// insert animal
 	if($organismtype == "animal"){
 		$eat = $_POST['eat'];
 		$diet = $_POST['Diet'];
@@ -69,7 +82,7 @@ if(! $insert_dependee_query ) {
 		$insert_animal_query =  mysqli_query($connection,$animal_query);
 
 		if(! $insert_animal_query ) {
-			die('Could not enter data into database: '  . mysqli_error($connection) );
+			die('Could not enter animal data into database: '  . mysqli_error($connection) );
 		}
 
     if($eat == "predator"){
@@ -78,6 +91,8 @@ if(! $insert_dependee_query ) {
 
 	}
 
+
+// insert plant
 	if($organismtype == "plant"){
 		$flowercolor = $_POST['FlowerColor'];
 		$calories = $_POST['Calories'];
@@ -88,10 +103,12 @@ if(! $insert_dependee_query ) {
 		$insert_plant_query = mysqli_query($connection, $plant_query);
 
 		if(! $insert_plant_query ) {
-			die('Could not enter data into database: '  . mysqli_error($connection) );
+			die('Could not enter plant data into database: '  . mysqli_error($connection) );
 		}
 	}
 
+
+// insert fungus
 	if($organismtype == "fungus"){
 		$size = $_POST['Size'];
 		$smell = $_POST['Smell'];
@@ -108,22 +125,71 @@ if(! $insert_dependee_query ) {
 		$insert_fungus_query = mysqli_query($connection, $fungus_query);
 
 		if(! $insert_fungus_query) {
-			die('Could not enter data into database: '  . mysqli_error($connection) );
+			die('Could not enter fungus into database: '  . mysqli_error($connection) );
 		}
 
-		if($edibility == "edible"){
+		if($edibility == "inedible"){
 			$toxin_query = "INSERT INTO produces_toxin (Species, Chemical, Onset, Toxicity, Treatment) VALUES ('$Species', '$chemicalname', '$onset', '$toxicity', '$treatments')";
 			$insert_toxin_query = mysqli_query($connection, $toxin_query);
 		}
 
+}
 
-	$location = (!empty($_POST['Location_Name']) ? $connection->real_escape_string($_POST['Location_Name']) : false);
+// check if location is already in database
+$query = "SELECT LocationName FROM location WHERE LocationName='$location'";
 
-	}
+if ($connection->query($query)->num_rows == 0) {
+  $address = $_POST['Address'];
+  $env = $_POST['environment'];
+  $location_query = "INSERT INTO location (LocationName, Address, Environment) VALUES ('$location', '$address', '$env')";
+  $insert_location_query = mysqli_query($connection, $location_query);
+  echo "New location added.";
+  if(! $insert_location_query) {
+    die('Could not enter new location into database: '  . mysqli_error($connection) );
+  }
+}
 
-	echo "Entered data successfully\n";
-	}
+  $locationcondition = $_POST['locationcondition'];
+
+  if($locationcondition = "construction") {
+    $expecteddate = $_POST['ExpectedDate'];
+    $remodeldate = $_POST['RemodelDate'];
+    $infrastructure = $_POST['Infrastructure'];
+
+    $location_construction_q = "INSERT INTO location_Remodel (LocationName, Infrastructure, ExpectedDate, RemodelDate) VALUES ('$location', '$infrastructure', '$expecteddate', '$remodeldate')";
+    $insert_location_construction = mysqli_query($connection, $location_construction_q);
+  }
+
+  if($locationcondition = "maintenance") {
+    $schedule = $_POST['Schedule'];
+    $task = $_POST['Task'];
+
+
+    $location_maintenance_q = "INSERT INTO location_Maintenance (LocationName, Schedule, Task) VALUES ('$location', '$infrastructure', '$schedule', '$task')";
+    $insert_location_maintenance = mysqli_query($connection, $location_maintenance_q);
+  }
+
+
+
+// get user sid from email
+$query = "SELECT UserID FROM user WHERE Email='$email'";
+$uid = $connection->query($query);
+
+// insert sighting_Report
+$sighting_report_query = "INSERT INTO sighting_Report (SID, LocationName, Species, UserID, ReportDate) VALUES ('$sid', '$location', '$species', '$uid', '$reportdate')";
+$insert_sighting_report = mysqli_query($connection, $sighting_report_query);
+
+if(! $insert_sighting_report) {
+  die('Could not enter sighting report into database: '  . mysqli_error($connection) );
+}
+
+
+}
+
+	echo "\nEntered data successfully. New sighting report added.\n";
 	}
 }
+
+
 
  ?>

@@ -37,7 +37,7 @@
 		</div>
 
 		<div>
-			<label>Dependence(insert other organism that this one depends on)</label>
+			<label>Dependence(Check list of other organisms in ecosystem)</label>
 			<input type="text" name="dependee">
 		</div>
 
@@ -147,8 +147,18 @@
 		</div> <!-- end div insertFungus-->
 
 		<div>
-			<label>Location Name</label>
+			<label>Location Name *</label>
 			<input type="text" name="Location_Name">
+		</div>
+
+		<div>
+			<label>Location Address</label>
+			<input type="text" name="Address">
+		</div>
+
+		<div>
+			<label>Location Environment</label>
+			<input type="text" name="environment">
 		</div>
 
 		<div>
@@ -163,7 +173,7 @@
 		<div id = "insertconstruction">
 			<div>
 				<label>Remodel Date</label>
-				<input type="text" name="ExpectedDate">
+				<input type="text" name="RemodelDate">
 			</div>
 			<div>
 				<label>Expected Date</label>
