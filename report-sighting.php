@@ -7,7 +7,7 @@
 <?php include "header.php"; ?>
 
 	<h2>Report Sighting</h2>
-	<h5>* indicates required field<h5>
+	<h5>* indicates required field</h5>
 
 	<!-- ******** Add message to confirm successful insertion *********-->
 
