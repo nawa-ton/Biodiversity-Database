@@ -1,6 +1,7 @@
 <?php include "header.php"; ?>
 
 	<h2>Report Sighting</h2>
+	<h5>* indicates required field<h5>
 
 	<!-- ******** Add message to confirm successful insertion *********-->
 
@@ -15,15 +16,15 @@
 			</select>
 		</div>
 		<div>
-			<label>Name</label>
+			<label>Name*</label>
 			<input type="text" name="CommonName">
 		</div>
 		<div>
-			<label>Species</label>
+			<label>Species*</label>
 			<input type="text" name="Species">
 		</div>
 		<div>
-			<label>Primary Color</label>
+			<label>Primary Color*</label>
 			<input type="text" name="PrimaryColor">
 		</div>
 		<div>
@@ -36,7 +37,7 @@
 		</div>
 
 		<div>
-			<label>Dependence (enter organism that this depends on)</label>
+			<label>Dependence(insert other organism that this one depends on)</label>
 			<input type="text" name="dependee">
 		</div>
 
@@ -68,6 +69,11 @@
 				<label>Sound</label>
 				<input type="text" name="Sound">
 			</div>
+
+			<div>
+				<label>Eats (if predator)</label>
+				<input type="text" name="Eats">
+			</div>
 		</div> <!-- end div insertAnimal-->
 
 
@@ -94,7 +100,7 @@
 		</div> <!-- end div insertPlant-->
 
 		<div id = "insertfungus" class = "insertOrganism">
-			<!-- for insertfungus -->
+			<!-- for animal -->
 			<div>
 				<label>Size (cm.)</label>
 				<input type="text" name="Size">
@@ -180,9 +186,9 @@
 				<input type="text" name="Task">
 			</div>
 		</div> <!-- end div insertmaintenance-->
- 
+
 		<input class ="button" type="submit" value="Create" name="createsubmit">
 </form>
 
-		
-<?php include "footer-user.php"; ?>
+<?php include "sighting.php";
+      include "footer-user.php"; ?>
