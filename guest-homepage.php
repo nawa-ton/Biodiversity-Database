@@ -3,6 +3,7 @@
 	<ul id="accountlink">
 		<li><a href="register.php">Register</a></li>
 		<li><a href="login.php">Log in</a></li>
+		<li><a href="guest-homepage.php">Search Organism</a></li>
 	</ul>
 	<h2>Search Organism</h2>
 		

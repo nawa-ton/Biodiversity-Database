@@ -150,7 +150,7 @@ echo "table query: ".$query;
 
 			$columnlabels.='</tr>';
 			echo $columnlabels;
-			error_reporting(E_ERROR | E_PARSE);
+			error_reporting(0);
 
 			//print out the table
 			while($row=mysqli_fetch_array($result)){

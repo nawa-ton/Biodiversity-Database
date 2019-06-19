@@ -1,4 +1,5 @@
 <?php
+session_destroy();
 session_start();
 ?>
 
@@ -7,10 +8,11 @@ include 'connect.php';
 $connection = OpenCon();
 
 if(isset($_POST['submit'])){
-    if ( isset( $_POST['email'] ) && isset( $_POST['password'] ) ) {
+	error_reporting(0);
+    if (!empty( $_POST['email'] ) && !empty( $_POST['password'] ) ) {
 			//Assigning posted values to variables
-				$email = $_POST['email'];
-				$password = $_POST['password'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
 
         $select = $connection->prepare("SELECT * FROM user WHERE email=?");
         $select->bind_param('s', $_POST['email']);
@@ -20,7 +22,8 @@ if(isset($_POST['submit'])){
 
     	// Verify user password and set $_SESSION
     	if ($_POST['password'] == $user->Password) {
-    		$_SESSION['user_id'] = $user->UserID;
+			$_SESSION['user_id'] = $user->UserID;
+			$_SESSION['user_name'] = $user->Name;
 				header('Location:user-homepage.php');
 				exit();
     	} else {

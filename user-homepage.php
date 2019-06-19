@@ -1,14 +1,22 @@
-<?php include "header.php"; ?>
-
+<?php 
+session_start();
+include "header.php";
+if ( isset( $_SESSION['user_id'] ) ) {
+	//There is a current session going on, all values stored in $_SESSION can be retrived
+    echo "Hello ".$_SESSION['user_name']."!";
+} else {
+    // Redirect them to the login page
+    header("Location: http://localhost/login.php");
+}
+?>
 	<ul id="useraction">
 		<li><a href="report-sighting.php">Report Sighting</a></li>
 		<li><a href="edit-delete.php">Edit/Delete Sighting</a></li>
 		<li><a href="update-location-condition.php">Update Location Condition</a></li>
 		<li><a href="your-account.php">Your Account</a></li>
-		<li><a href="guest-homepage.php">Log Out</a></li>
+		<li><a href="login.php">Log Out</a></li>
 	</ul>
 <h2>Search Organism</h2>	
-
 	<form id="viewForm" method="POST" action="user-homepage.php">
 
 		<div>

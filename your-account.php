@@ -1,4 +1,6 @@
-<?php include "header.php"; ?>
+<?php 
+
+include "header.php"; ?>
 
 <h2>Your Account</h2>
 
@@ -7,8 +9,7 @@
 	include('connect.php');
 	include('phpfunction.php');
 
-	$userid = $_GET["user"];
-
+	// $userid = $_GET["user"];
 
 	if(isset($_POST['updatesubmit'])){
 
