@@ -87,14 +87,14 @@ Insert into Location values('Norquay Park', '2324 Terrestrial Ave', 'park');
 Insert into Location values('Central Garden', '2459 Terrestrial Ave', 'garden');
 
 
-Insert into Location_Maintenance (LocationName, Schedule, Task) values('Central Garden', TO_DATE('06-FEB-2019', 'DD-MON-YYYY'), 'Cutting grass');
+Insert into Location_Maintenance (LocationName, Schedule, Task) values('Central Garden', '2019-02-06', 'Cutting grass');
 
-Insert into Location_Maintenance (LocationName, Schedule, Task) values('Norquay Park', TO_DATE('23-DEC-2019', 'DD-MON-YYYY'), 'Collecting garbage');
+Insert into Location_Maintenance (LocationName, Schedule, Task) values('Norquay Park', '2019-12-23', 'Collecting garbage');
 
 
-Insert into Location_Remodel (LocationName, Infrastructure,ExpectedDate,RemodelDate) values ('Central Garden', 'rose garden', TO_DATE('03-MAR-2019', 'DD-MON-YYYY'), TO_DATE('05-MAY-2019', 'DD-MON-YYYY'));
+Insert into Location_Remodel (LocationName, Infrastructure,ExpectedDate,RemodelDate) values ('Central Garden', 'rose garden', '2019-03-03', '2019-05-05');
 
-Insert into Location_Remodel (LocationName, Infrastructure,ExpectedDate,RemodelDate) values ('Norquay Park', 'information kiosk', TO_DATE('1-APR-2019', 'DD-MON-YYYY'), TO_DATE('30-APR-2019', 'DD-MON-YYYY'));
+Insert into Location_Remodel (LocationName, Infrastructure,ExpectedDate,RemodelDate) values ('Norquay Park', 'information kiosk', '2019-04-01', '2019-04-30');
 
 
 Insert into Sighting_Report (LocationName, Species, UserID) values ('Lumin Stream', 'Salvelinus fontinalis', 1);
