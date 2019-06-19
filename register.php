@@ -24,22 +24,24 @@
 
 
 <?php
-require('connect.php');
+include 'connect.php';
+$connection = OpenCon();
+
 // If the values are posted, insert them into the database.
 if(isset($_POST['submit'])){
     if (isset($_POST['Name']) &&isset($_POST['Email']) && isset($_POST['Password'])){
 		$email = $_POST['Email'];
 		$name = $_POST['Name'];
 		$password = $_POST['Password'];
-	
+
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			echo "Please enter a valid email.";
 			return;
 		}
-		
-		$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO `user` (name, email,password) 
-			VALUES ('$name', '$email', $hashed_password')";
+
+
+        $query = "INSERT INTO `user` (name, email,password)
+			VALUES ('$name', '$email', '$password')";
         $result = mysqli_query($connection, $query);
         if($result){
             echo "User Created Successfully.";
