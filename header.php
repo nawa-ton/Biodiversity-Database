@@ -111,24 +111,15 @@
 			$(document).ready(function(){
 
 
-				//display input fields that correspond to user/guest chosen query
+				//display input fields that correspond to user's selection
 				$(function(){
-					$("#insertaggregation, #insertdivision").hide();
-					
-					$("#querytype").change(function(){
-						if($(this).val() == 'aggregation'){
-							$("#insertselection").hide();
-							$("#insertdivision").hide();
-							$("#insertaggregation").show();
-						} else if($(this).val() == 'selection'){
-							$("#insertselection").show();
-							$("#insertaggregation").hide();
-							$("#insertdivision").hide();
+					$("#searchFungusEdibility").hide();
+
+					$("#vieworganismtype").change(function(){
+						if($(this).val() == 'fungus'){
+							$("#searchFungusEdibility").show();
 						}else{
-							$("#insertselection").hide();
-							$("#insertaggregation").hide();
-							$("#insertdivision").show();
-							$("#selecttype").hide();
+							$("#searchFungusEdibility").hide();
 						}
 					})
 				});
@@ -165,10 +156,9 @@
 				//display input fields that correspond to user's selection for edit-delete page
 				$(function(){
 
-					$( ".resulttable" ).appendTo( ".resultposition" );
-					$( ".confirmmsg" ).appendTo( ".resultposition" );
-					$( ".resulttable" ).appendTo( ".resultposition" );
-
+					//$( ".resulttable" ).appendTo( ".resultposition" );
+					//$( ".confirmmsg" ).appendTo( ".resultposition" );
+					//$( ".resulttable" ).appendTo( ".resultposition" );
 
 					$("#searchbyreportID, #searchbyOrganism, #searchbyLocation").hide();
 
@@ -179,6 +169,22 @@
 							$("#searchbyLocation").show();
 						}else{
 						  	$(".searchby").hide();
+						  	$("#searchby" + $(this).val()).show();
+						}
+					});
+				});
+
+				//display input fields as per user's selection
+				$(function(){
+					$("#searchbyUserID, #searchbyName, #searchbyJoinYear").hide();
+
+					$("#searchuserby").change(function(){
+						if($(this).val() == 'NameYear'){
+							$(".searchuser").hide();
+							$("#searchbyName").show();
+							$("#searchbyJoinYear").show();
+						}else{
+						  	$(".searchuser").hide();
 						  	$("#searchby" + $(this).val()).show();
 						}
 					});

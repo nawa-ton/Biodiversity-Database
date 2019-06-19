@@ -24,8 +24,31 @@ function printEditDeleteTable($resultfromquery, $namesOfColumn, $userid){
 	}
 }
 
+function printUserTable($resultfromquery, $namesOfColumn){
+	if($resultfromquery && mysqli_num_rows($resultfromquery) != 0){
+		echo "<table class='resulttable'><tr>";
+		foreach ($namesOfColumn as $name) {
+			echo "<th>$name</th>";
+		}
+		echo "</tr>";
+		while($row = mysqli_fetch_array($resultfromquery)){
+			echo "<tr>";
+			$string = "";
+
+			for($i = 0; $i < sizeof($namesOfColumn); $i++){
+				$string .= "<td class='resultrow'>" . $row["$i"] . "</td>";
+			}
+
+			echo $string;
+      		echo "<td><a class='inlinebutton' href='admin-users-account.php?user=$row[0]'>Delete</a></td>";
+			echo "</tr>";
+      	}
+      	echo "</table>";
+	}
+}
+
 function printTable($resultfromquery, $namesOfColumn){
-	if($resultfromquery){
+	if($resultfromquery && mysqli_num_rows($resultfromquery) != 0){
 		echo "<table class='resulttable'><tr>";
 		foreach ($namesOfColumn as $name) {
 			echo "<th>$name</th>";
