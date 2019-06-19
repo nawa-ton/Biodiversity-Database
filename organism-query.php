@@ -11,8 +11,8 @@
 		$projection="SELECT ";
 		$selection="";
 
-		//if query type is selection, then project on check boxes and select on input fields 
-		if($_POST['querytype']=="selection"){
+		//if query type is selection or division, then project on check boxes and select on input fields 
+		if($_POST['querytype']!="aggregation"){
 			//projection on checked boxes
 			if(isset($_POST["cspecies"])){
 				$projection.="t.species, ";
@@ -30,7 +30,7 @@
 				$projection.="v.rarity, ";
 			}
 
-			//get the values from input fields
+			//get the selection filters from input fields
 			$organismname = (!empty($_POST['organismname']) ? $connection->real_escape_string($_POST['organismname']) : false);
 			$species = (!empty($_POST['species']) ? $connection->real_escape_string($_POST['species']) : false);
 			$habitat = (!empty($_POST['habitat']) ? $connection->real_escape_string($_POST['habitat']) : false);  
@@ -53,18 +53,24 @@
 			if($rarity){
 				$selection.=" AND v.rarity LIKE '%$rarity%'";
 			}
+			if($_POST['querytype']=="division"){
+				$typeeaten=$_POST['typeeaten'];
+				$selection.=" AND NOT EXISTS 
+				(SELECT * FROM $typeeaten te WHERE NOT EXISTS 
+				(SELECT * FROM animal_eats e WHERE t.species=e.species_eats AND te.species=e.species_eaten))";	
+			}
 		}
 
-		$group="";
+		$group="t.species";
 		$groupname=$_POST['group'];
 		$groupselection="";
 		//if query type is aggregation, project the selected group and its count, only include groups with count>0
 		if($_POST['querytype']=="aggregation"){
 			//add projection
 			if($_POST['group']=="primarycolor" || $_POST['group']=="rarity"){
-				$group.="v.";
+				$group="v.";
 			}else{
-				$group.="t.";
+				$group="t.";
 			}
 			$group.=$_POST['group'];
 			$projection.="$group, ";
@@ -77,16 +83,22 @@
 		$projection=rtrim($projection,", ");
 		$projection.=" ";
 
-		$query="";
-		$query.=$projection;
+		$query=$projection;
 		//left join organism with organism_variation
 		$query.="FROM organism t LEFT JOIN organism_variation v ON (t.species=v.species) 
-			WHERE t.species IN (select species FROM $viewtype) ";
+			WHERE t.species IN ";
+			
+		//division is just on animals
+		if($_POST['querytype']=="division"){
+			$query.= "(SELECT species FROM animal) ";
+		} else{
+			$query.= "(select species FROM $viewtype) ";
+		}
 
 		$query.=$selection;
 		$query.=$groupselection;
 
-// echo "table query: ".$query;
+echo "table query: ".$query;
 
 		$result = mysqli_query($connection, $query);
 		
@@ -112,8 +124,8 @@
 			$columnlabels='<table align ="left"
 			cellspacing = "5" cell padding = "8"><tr>';
 
-			//display the selected columns if query is selection
-			if($_POST['querytype']=="selection"){
+			//display the selected columns if query is selection or division
+			if($_POST['querytype']!="aggregation"){
 				if(isset($_POST['cspecies'])){
 					$columnlabels.='<td align="left"><b>species</b></td>';
 				}
@@ -140,10 +152,11 @@
 			echo $columnlabels;
 			error_reporting(E_ERROR | E_PARSE);
 
+			//print out the table
 			while($row=mysqli_fetch_array($result)){
 				$rowfills='<tr><td align="left">';
 
-				if($_POST['querytype']=="selection"){
+				if($_POST['querytype']!="aggregation"){
 					if(isset($_POST['cspecies'])){
 						$rowfills.=$row['species'].'</td><td align="left">';
 					}
