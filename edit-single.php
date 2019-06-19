@@ -1,3 +1,8 @@
+<?php 
+	session_start(); 
+ 	$userid = $_SESSION['user_id'];
+?>
+
 <?php include "header.php"; ?>
 
 <?php
@@ -6,7 +11,6 @@
 	include('phpfunction.php');
 
 	$id = $_GET["sid"];
-	$userid = $_GET["user"];
 
 	if(isset($_POST['updateorganism'])){
 
@@ -61,7 +65,6 @@
 		$result = mysqli_query($connection, $query);
 
 		if(mysqli_num_rows($result) > 0){
-			
 			printKeyVal($result);
 		}
 	}
@@ -93,5 +96,5 @@
 
 <div class="resultposition"></div>
 
-<a href="<?php if(isset($_GET['user'])){echo 'edit-delete.php?user='. $_GET['user'];} ?>">Back to Edit/Delete</a>
+<a href="edit-delete.php">Back to Edit/Delete</a>
 <?php include "footer-user.php"; ?>
