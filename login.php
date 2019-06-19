@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "header.php"; ?>
+?>
 
 <?php
 include 'connect.php';
@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
     	if ($_POST['password'] == $user->Password) {
     		$_SESSION['user_id'] = $user->UserID;
 				header('Location:user-homepage.php');
-				exit;
+				exit();
     	} else {
 					echo "Invalid Login Credentials.";
 			}
@@ -31,6 +31,7 @@ if(isset($_POST['submit'])){
 		}
 }
 
+include "header.php"; 
 ?>
 
 	<h2>Log in</h2>
