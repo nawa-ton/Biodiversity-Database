@@ -1,3 +1,8 @@
+<?php 
+	session_start(); 
+ 	$userid = $_SESSION['user_id'];
+?>
+
 <?php include "header.php"; ?>
 
 	<h2>Report Sighting</h2>
