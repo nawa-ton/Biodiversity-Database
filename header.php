@@ -38,6 +38,15 @@
     			line-height: 1.5em;
 			}
 
+			.confirmmsg{
+				color: #c44b23;
+			}
+
+			/*added by nawa*/
+			.bold{
+				font-weight: bold;
+			}
+
 			/* form */
 			label{
 		        display: block;
@@ -46,10 +55,13 @@
 		    }
 
 		    .button {
-		        margin-top: 5px;
+		        margin-top: 5px;		        
 		        background-color: #2623c4;
 		        color: #fff;
 		        padding: 5px 15px;
+		        /* added by nawa */
+				margin-bottom: 30px;
+				font-size: 1em;
 		    }
 
 		    form div {
@@ -73,6 +85,8 @@
 			table {
 				border-collapse: collapse;
 				border-spacing: 0;
+				/* added by nawa */
+				margin-top: 20px;
 			}
 
 			td, th {
@@ -85,27 +99,21 @@
 				background-color: #bebdff;
 			}
 
-
-
-
-
 		</style>
 
 		<script type="text/javascript">
 			$(document).ready(function(){
 
 
-				//display input fields that correspond to user/guest selection
+				//display input fields that correspond to user's selection
 				$(function(){
-					$("#insertaggregation").hide();
+					$("#searchFungusEdibility").hide();
 
-					$("#querytype").change(function(){
-						if($(this).val() == 'aggregation'){
-							$("#insertselection").hide();
-							$("#insertaggregation").show();
+					$("#vieworganismtype").change(function(){
+						if($(this).val() == 'fungus'){
+							$("#searchFungusEdibility").show();
 						}else{
-							$("#insertselection").show();
-							$("#insertaggregation").hide();
+							$("#searchFungusEdibility").hide();
 						}
 					})
 				});
@@ -137,6 +145,28 @@
 						}
 					});
 						
+				});
+
+				//display input fields that correspond to user's selection for edit-delete page
+				$(function(){
+
+					$( ".resulttable" ).appendTo( ".resultposition" );
+					$( ".confirmmsg" ).appendTo( ".resultposition" );
+					$( ".resulttable" ).appendTo( ".resultposition" );
+
+
+					$("#searchbyreportID, #searchbyOrganism, #searchbyLocation").hide();
+
+					$("#searchsightingby").change(function(){
+						if($(this).val() == 'OrganismLocation'){
+							$(".searchby").hide();
+							$("#searchbyOrganism").show();
+							$("#searchbyLocation").show();
+						}else{
+						  	$(".searchby").hide();
+						  	$("#searchby" + $(this).val()).show();
+						}
+					});
 				});
 
 			});
