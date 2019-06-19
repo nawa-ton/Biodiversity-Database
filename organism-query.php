@@ -8,7 +8,7 @@
 			$viewtype="organism";
 		}
 
-		$projection="SELECT ";
+		$projection="SELECT DISTINCT";
 		$selection="";
 
 		//if query type is selection or division, then project on check boxes and select on input fields 
