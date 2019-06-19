@@ -72,7 +72,9 @@ insert into Organism_Variation values ('Psilocybe semilanceata', 'white', 'commo
 
 insert into Organism_Variation values ('Amanita phalloides', 'grey', 'common');
 
-insert into Organism_Variation values ('Procyon lotor', 'grey and black', 'common');
+insert into Organism_Variation values ('Procyon lotor', 'grey', 'common');
+
+insert into Organism_Variation values ('Procyon lotor', 'black', 'common');
 
 insert into Organism_Variation values ('Procyon lotor', 'reddish', 'rare');
 
@@ -92,6 +94,8 @@ insert into Organism_Variation values ('Equus magicalus', 'grey and black', 'rar
 
 insert into Organism_Variation values ('Equus magicalus', 'reddish', 'rare');
 
+insert into Organism_Variation values ('Equus magicalus', 'black', 'rare');
+
 
 
 insert into Animal values ('Sciurus carolinensis', 'nuts', 'docile', 'healthy','squeak');
@@ -107,6 +111,10 @@ insert into Animal values ('Larus glaucescens', 'fish', 'docile', 'healthy', 'so
 insert into Animal values ('Glaucomys sabrinus', 'nuts', 'docile', 'healthy', 'squeak');
 
 insert into Animal values ('Passer domesticus', 'seeds', 'docile', 'healthy', 'chirp');
+
+insert into Animal values ('Equus magicalus', 'plants', 'docile', 'healthy', 'neigh');
+
+insert into Animal values ('Danaus plexippus', 'nectar', 'docile', 'healthy', NULL);
 
 
 insert into Animal_Eats values ('Pandion haliaetus', 'Salvelinus fontinalis');
