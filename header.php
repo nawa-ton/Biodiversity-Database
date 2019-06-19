@@ -18,6 +18,7 @@
 				margin-bottom: 1em;
 				min-height: 80vh;
 				width: 100%;
+				overflow: auto;
 			}
 
 			.viewResults{
@@ -93,6 +94,7 @@
 				border-spacing: 0;
 				/* added by nawa */
 				margin-top: 20px;
+				margin-bottom: 50px;
 			}
 
 			td, th {

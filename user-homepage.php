@@ -1,7 +1,8 @@
 <?php 
 session_start();
 include "header.php";
-if ( isset( $_SESSION['user_id'] ) && $_SESSION['user_id']>=0 ) {
+error_reporting(0);
+if ( isset( $_SESSION['user_id'] && $_SESSION['user_id']>=0 ) ) {
 	//There is a current session going on, all values stored in $_SESSION can be retrived
     echo "Hello ".$_SESSION['user_name']."!";
 } else {

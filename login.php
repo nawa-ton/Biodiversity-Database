@@ -1,5 +1,7 @@
 <?php
-session_destroy();
+if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+   session_destroy();
+}
 session_start();
 ?>
 
@@ -34,7 +36,7 @@ if(isset($_POST['submit'])){
 		}
 }
 
-include "header.php"; 
+include "header.php";
 ?>
 
 	<h2>Log in</h2>
