@@ -1,8 +1,11 @@
 <?php 
-	session_start(); 
- 	$userid = $_SESSION['user_id'];
+	session_start();
+	if (isset($_SESSION['user_id']) && $_SESSION['user_id']>=0) {
+		$userid = $_SESSION['user_id'];
+	} else {
+		header("Location: http://localhost/login.php");
+	}	
 ?>
-
 <?php include "header.php"; ?>
 
 <h2>Your Account</h2>
