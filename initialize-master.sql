@@ -151,7 +151,7 @@ CREATE TABLE sighting_Report(
 	UserID INTEGER,
 	ReportDate TIMESTAMP DEFAULT  CURRENT_TIMESTAMP,
 	PRIMARY KEY (SID),
-	FOREIGN KEY (UserID) REFERENCES user(userid),
+	FOREIGN KEY (UserID) REFERENCES user(userid) ON DELETE CASCADE,
 	FOREIGN KEY (LocationName) REFERENCES Location(locationname),
 	FOREIGN KEY (Species) REFERENCES Organism(species)
 );
