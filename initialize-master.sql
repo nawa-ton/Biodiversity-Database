@@ -206,6 +206,10 @@ insert into Organism values ('Glaucomys sabrinus', 'Northern flying squirrel', '
 
 insert into Organism values ('Equus magicalus', 'Unicorn', 'anywhere');
 
+insert into Organism values ('Equus llamas', 'Magic Llama', 'meadows');
+
+insert into Organism values ('Equus taurus', 'Vore Cattle', 'open fields');
+
 
 insert into Organism_Variation values ('Sciurus carolinensis', 'grey', 'Common');
 
@@ -271,9 +275,13 @@ insert into Animal values ('Glaucomys sabrinus', 'nuts', 'docile', 'healthy', 's
 
 insert into Animal values ('Passer domesticus', 'seeds', 'docile', 'healthy', 'chirp');
 
-insert into Animal values ('Equus magicalus', 'plants', 'docile', 'healthy', 'neigh');
+insert into Animal values ('Equus magicalus', 'plants', 'aggresive', 'healthy', 'neigh');
 
-insert into Animal values ('Danaus plexippus', 'nectar', 'docile', 'healthy', NULL);
+insert into Animal values ('Equus llamas', 'fungus', 'docile', 'healthy', 'neigh');
+
+insert into Animal values ('Equus taurus', 'vegetation', 'docile', 'healthy', 'moo');
+
+insert into Animal values ('Danaus plexippus', 'nectar', 'docile', 'healthy', NULL); 
 
 
 insert into Animal_Eats values ('Pandion haliaetus', 'Salvelinus fontinalis');
@@ -286,6 +294,46 @@ insert into Animal_Eats values ('Passer domesticus', 'Taraxacum officinale');
 
 insert into Animal_Eats values ('Procyon lotor', 'Taraxacum officinale');
 
+
+insert into Animal_Eats values ('Equus magicalus', 'Danaus plexippus');
+insert into Animal_Eats values ('Equus magicalus', 'Equus magicalus');
+insert into Animal_Eats values ('Equus magicalus', 'Glaucomys sabrinus');
+insert into Animal_Eats values ('Equus magicalus', 'Larus glaucescens');
+insert into Animal_Eats values ('Equus magicalus', 'Pandion haliaetus');
+insert into Animal_Eats values ('Equus magicalus', 'Passer domesticus');
+insert into Animal_Eats values ('Equus magicalus', 'Procyon lotor');
+insert into Animal_Eats values ('Equus magicalus', 'Salvelinus fontinalis');
+insert into Animal_Eats values ('Equus magicalus', 'Sciurus carolinensis');
+
+insert into Animal_Eats values ('Equus magicalus', 'Taraxacum officinale');
+insert into Animal_Eats values ('Equus magicalus', 'Rosa nutkana');
+insert into Animal_Eats values ('Equus magicalus', 'Quercus alba');
+insert into Animal_Eats values ('Equus magicalus', 'Physocarpus capitatus');
+insert into Animal_Eats values ('Equus magicalus', 'Calochortus macrocarpus');
+
+insert into Animal_Eats values ('Equus magicalus', 'Amanita muscaria');
+insert into Animal_Eats values ('Equus magicalus', 'Amanita phalloides');
+insert into Animal_Eats values ('Equus magicalus', 'Armillaria mellea');
+insert into Animal_Eats values ('Equus magicalus', 'Psilocybe semilanceata');
+insert into Animal_Eats values ('Equus magicalus', 'Russula xerampelina');
+
+insert into Animal_Eats values ('Equus llamas', 'Amanita muscaria');
+insert into Animal_Eats values ('Equus llamas', 'Amanita phalloides');
+insert into Animal_Eats values ('Equus llamas', 'Armillaria mellea');
+insert into Animal_Eats values ('Equus llamas', 'Psilocybe semilanceata');
+insert into Animal_Eats values ('Equus llamas', 'Russula xerampelina');
+
+insert into Animal_Eats values ('Equus taurus', 'Taraxacum officinale');
+insert into Animal_Eats values ('Equus taurus', 'Rosa nutkana');
+insert into Animal_Eats values ('Equus taurus', 'Quercus alba');
+insert into Animal_Eats values ('Equus taurus', 'Physocarpus capitatus');
+insert into Animal_Eats values ('Equus taurus', 'Calochortus macrocarpus');
+
+insert into Animal_Eats values ('Equus taurus', 'Amanita muscaria');
+insert into Animal_Eats values ('Equus taurus', 'Amanita phalloides');
+insert into Animal_Eats values ('Equus taurus', 'Armillaria mellea');
+insert into Animal_Eats values ('Equus taurus', 'Psilocybe semilanceata');
+insert into Animal_Eats values ('Equus taurus', 'Russula xerampelina');
 
 insert into Plant values ('Taraxacum officinale', 'yellow', 45);
 
