@@ -275,7 +275,7 @@ insert into Animal values ('Glaucomys sabrinus', 'nuts', 'docile', 'healthy', 's
 
 insert into Animal values ('Passer domesticus', 'seeds', 'docile', 'healthy', 'chirp');
 
-insert into Animal values ('Equus magicalus', 'plants', 'aggresive', 'healthy', 'neigh');
+insert into Animal values ('Equus magicalus', 'all', 'aggresive', 'healthy', 'neigh');
 
 insert into Animal values ('Equus llamas', 'fungus', 'docile', 'healthy', 'neigh');
 
