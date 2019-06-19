@@ -60,11 +60,11 @@
 		        color: #fff;
 		        padding: 5px 15px;
 		        /* added by nawa */
-				margin-bottom: 30px;
+				margin-bottom: 20px;
 				font-size: 1em;
 		    }
 
-		    form div {
+		    form, form div {
 		    	margin-bottom: 15px;
 		    }
 
@@ -78,6 +78,12 @@
 			select {
 				height: 25px;
     			font-size: 1em;
+			}
+
+			#editSighting{
+			    background-color: #d6d6d6;
+			    padding: 15px 30px;
+			    width: 60vh;
 			}
 
 			/* table */
