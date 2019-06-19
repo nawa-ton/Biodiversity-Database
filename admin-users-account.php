@@ -65,6 +65,10 @@
 
 		$result = mysqli_query($connection, $query);
 		
+		if(!$result) {
+		  	die('Could not process the query. Possible reason: User ID input is not an integer.');
+		}
+
 		if(mysqli_num_rows($result) > 0){
 			printUserTable($result, $columnNames);
 			echo "<p class='confirmmsg'>" . mysqli_num_rows($result) . " results found</p>";

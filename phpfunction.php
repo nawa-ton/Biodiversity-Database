@@ -16,8 +16,8 @@ function printEditDeleteTable($resultfromquery, $namesOfColumn, $userid){
 			}
 
 			echo $string;
-			echo "<td><a class='inlinebutton' href='edit-single.php?sid=$row[0]&user=$userid'>Edit</a></td>";
-      		echo "<td><a class='inlinebutton' href='edit-delete.php?sid=$row[0]&user=$userid'>Delete</a></td>";
+			echo "<td><a class='inlinebutton' href='edit-single.php?sid=$row[0]'>Edit</a></td>";
+      		echo "<td><a class='inlinebutton' href='edit-delete.php?sid=$row[0]'>Delete</a></td>";
 			echo "</tr>";
       	}
       	echo "</table>";
