@@ -23,12 +23,14 @@ Insert into Organism values('Psilocybe semilanceata', 'magic mushroom', 'grassla
 
 insert into Organism values('Armillaria mellea', 'honey fungus', 'parasitical on broadleaf trees');
 
+insert into Organism values('Procyon lotor', 'North American racoon', 'forest or urban area');
 
-Insert into Organism_Variation values ('Sciurus carolinensis', 'Grey', 'Common');
 
-Insert into Organism_Variation values('Pandion haliaetus', 'dark brown', 'rare');
+Insert into Organism_Variation values ('Sciurus carolinensis', 'grey', 'Common');
 
-Insert into Organism_Variation values('Salvelinus fontinalis', 'dark green', 'common');
+Insert into Organism_Variation values('Pandion haliaetus', 'brown', 'rare');
+
+Insert into Organism_Variation values('Salvelinus fontinalis', 'green', 'common');
 
 Insert into Organism_Variation values ('Taraxacum officinale', 'yellow', 'common');
 
@@ -38,6 +40,20 @@ Insert into Organism_Variation values ('Amanita phalloides', 'white', 'common');
 
 Insert into Organism_Variation values ('Psilocybe semilanceata', 'brown', 'rare');
 
+Insert into Organism_Variation values ('Pandion haliaetus', 'grey', 'rare');
+
+Insert into Organism_Variation values ('Salvelinus fontinalis', 'rainbow', 'rare');
+
+Insert into Organism_Variation values ('Armillaria mellea', 'yellow', 'common');
+
+Insert into Organism_Variation values ('Psilocybe semilanceata', 'white', 'common');
+
+Insert into Organism_Variation values ('Amanita phalloides', 'grey', 'common');
+
+Insert into Organism_Variation values ('Procyon lotor', 'grey and black', 'common');
+
+Insert into Organism_Variation values ('Procyon lotor', 'reddish', 'rare');
+
 
 
 insert into Animal values('Sciurus carolinensis', 'nuts', 'docile', 'healthy','squeak');
@@ -46,18 +62,20 @@ Insert into Animal values('Pandion haliaetus', 'fish', 'aggressive', 'healthy', 
 
 Insert into Animal values('Salvelinus fontinalis', 'fish', 'docile', 'healthy', NULL);
 
+Insert into Animal values('Procyon lotor', 'fish', 'aggressive', 'healthy', 'chitter');
+
 
 Insert into Animal_Eats values('Pandion haliaetus', 'Salvelinus fontinalis');
 
 
 insert into Plant values('Taraxacum officinale', 'yellow', 45);
 
-Insert into Plant values('Quercus alba', 'green', 'inedible'); 
+Insert into Plant values('Quercus alba', 'green', 'inedible');
 
 
 Insert into Plant_Fruit values('Taraxacum officinale', 'dandelion fruit', 45);
 
-Insert into Plant_Fruit values('Quercus alba', 'acorn', 143); 
+Insert into Plant_Fruit values('Quercus alba', 'acorn', 143);
 
 
 insert into Fungus values('Amanita phalloides', 'inedible', 'smooth', 15, 'overpowering');
@@ -112,9 +130,3 @@ Insert into Sighting_Report (LocationName, Species, UserID) values ('Norquay Par
 Insert into Sighting_Report (LocationName, Species, UserID) values ('Norquay Park', 'Psilocybe semilanceata', 3);
 
 Insert into Sighting_Report (LocationName, Species, UserID) values ('Woody Forest', 'Armillaria mellea', 3);
-
-
-
-
-
-
