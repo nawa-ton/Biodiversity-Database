@@ -1,4 +1,5 @@
 <?php
+
 include 'connect.php';
 
 $connection = OpenCon();
@@ -151,7 +152,7 @@ if ($connection->query($query)->num_rows == 0) {
 
   $locationcondition = $_POST['locationcondition'];
 
-  if($locationcondition = "construction") {
+  if($locationcondition == "construction") {
     $expecteddate = $_POST['ExpectedDate'];
     $remodeldate = $_POST['RemodelDate'];
     $infrastructure = $_POST['Infrastructure'];
@@ -160,7 +161,7 @@ if ($connection->query($query)->num_rows == 0) {
     $insert_location_construction = mysqli_query($connection, $location_construction_q);
   }
 
-  if($locationcondition = "maintenance") {
+  if($locationcondition == "maintenance") {
     $schedule = $_POST['Schedule'];
     $task = $_POST['Task'];
 
@@ -171,12 +172,9 @@ if ($connection->query($query)->num_rows == 0) {
 
 
 
-// get user sid from email
-$query = "SELECT UserID FROM user WHERE Email='$email'";
-$uid = $connection->query($query);
 
 // insert sighting_Report
-$sighting_report_query = "INSERT INTO sighting_Report (SID, LocationName, Species, UserID, ReportDate) VALUES ('$sid', '$location', '$species', '$uid', '$reportdate')";
+$sighting_report_query = "INSERT INTO sighting_Report (LocationName, Species, UserID) VALUES ( '$location', '$species', '$userid')";
 $insert_sighting_report = mysqli_query($connection, $sighting_report_query);
 
 if(! $insert_sighting_report) {
