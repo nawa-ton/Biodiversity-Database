@@ -8,7 +8,7 @@
 			$viewtype="organism";
 		}
 
-		$projection="SELECT DISTINCT";
+		$projection="SELECT DISTINCT ";
 		$selection="";
 
 		//if query type is selection or division, then project on check boxes and select on input fields 
@@ -103,20 +103,15 @@
 		$result = mysqli_query($connection, $query);
 		
 		// aggregate query on count the number of results
-		$countresultquery="";
-		if($_POST['querytype']=="selection"){
-			$countresultquery.="SELECT count(*) AS count ";
-		}else{
-			$countresultquery.="SELECT count(DISTINCT $group) AS count ";
-		}
-		$countresultquery.="FROM organism t LEFT JOIN organism_variation v ON (t.species=v.species) 
-			WHERE t.species IN (select species FROM $viewtype)";
-		$countresultquery.=$selection;
+		$viewquery="CREATE VIEW tableresult AS ".$query;
+		mysqli_query($connection, $viewquery);
+
+		$countresultquery="SELECT count(*) AS count FROM tableresult";
 		$countresult=mysqli_query($connection,$countresultquery);
 		$countrow =mysqli_fetch_array($countresult);
 		echo "<p class='confirmmsg'>Results Found: ". $countrow['count']."</p>";
-
-// echo "counter query: ".$countresultquery;
+		mysqli_query($connection, "DROP VIEW tableresult");
+		// echo "counter query: ".$countresultquery;
 
 		//print out result table 
 		if($result){

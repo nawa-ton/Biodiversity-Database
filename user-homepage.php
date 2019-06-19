@@ -43,8 +43,8 @@ if ( isset( $_SESSION['user_id'] ) && $_SESSION['user_id']>=0 ) {
 				<input type="checkbox" name="cspecies" checked>Species		
 				<input type="checkbox" name="cname" checked>Name		
 				<input type="checkbox" name="chabitat" checked> Habitat		
-				<input type="checkbox" name="cprimarycolor" checked> Primary Color
-				<input type="checkbox" name="crarity" checked> Rarity<br><br>
+				<input type="checkbox" name="cprimarycolor" > Primary Color
+				<input type="checkbox" name="crarity" > Rarity<br><br>
 				<div>
 					<label>Organism Name</label>
 					<input type="text" name="OrganismName">
