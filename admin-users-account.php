@@ -1,13 +1,19 @@
-<?php include "header.php"; ?>
+<?php session_start();
+$user_id = $_SESSION['user_id'];
+
+include "header.php";
+include "phpfunction.php";
+ ?>
+
 
 	<h2>Users Account</h2>
 
 
 
 	<!-- ********* Add message to confirm successful deletion ******** -->
-		<form id="searchUsersForm" method="POST" action="index.php">
+		<form id="searchUsersForm" method="POST" action="admin-users-account.php" name="searchUser">
 		<div>
-			<label>User ID</label>
+			<label>User ID*</label>
 			<input type="text" name="UserID">
 		</div>
 
@@ -16,44 +22,71 @@
 			<input type="text" name="Name">
 		</div>
 
-		<div>
-			<label>Year Joined</label>
-			<input type="text" name="YearJoined">
-		</div>
 
-		<input class ="button" type="submit" value="Submit" name="searcheusersubmit">
-	</form>	
+		<input class ="button" type="submit" value="Submit" name="searchusersubmit">
+	</form>
 
 
 	<div class="viewResults">
 
-	<!-- ******** This is just a placeholder table. To get data from the database, refer to function printResult in oracle-test.php (tutorial 7) ******** -->
-		<p class="remark">Note: This is only to give the idea about layout of the table. The actual table shold be appeared only after submitting query</p>
 
-	<table>
-		<thead>
-			<tr>
-				<th>User ID</th>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Date Joined</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Placeholder</td>
-				<td>Placeholder</td>
-				<td>Placeholder</td>
-				<td>Placeholder</td>
-				<td><a hred="users-account.php">Delete</a></td> 
-			</tr>
-			<tr>
 
-			</tr>
-		</tbody>
+<?php
+include 'connect.php';
+$connection = OpenCon();
 
-	</table>
+if(isset($_POST['searchusersubmit'])){
+
+	$userid = (!empty($_POST['UserID']) ? $connection->real_escape_string($_POST['UserID']) : false);
+	$name = $_POST['Name'];
+
+	if($userid == false) {
+		echo "<font color=red, size='4pt'> Enter Valid UserID";
+	} else {
+
+	$query = "SELECT UserID, Name, joindate FROM user WHERE UserID=$userid AND Name LIKE '%$name%'";
+	$result = $connection->query($query);
+
+echo  "<br> USERS <br>";
+
+if($result->num_rows > 0){
+
+$columnNames = ['UserID', 'Name', 'Date Joined'];
+
+if($result){
+	echo "<table class='resulttable'><tr>";
+	foreach ($columnNames as $name) {
+		echo "<th>$name</th>";
+	}
+	echo "<th>delete</th>";
+	echo "</tr>";
+	while($row = mysqli_fetch_array($result)){
+		echo "<tr>";
+		$string = "";
+
+		for($i = 0; $i < sizeof($columnNames); $i++){
+			$string .= "<td class='resultrow'>" . $row["$i"] . "</td>";
+		}
+
+		$string .= " <td class = 'resultrow'>" . "<input type='button' value = 'delete' >" .   "</td>";
+
+
+		echo $string;
+		echo "</tr>";
+			}
+
+		}
+			echo "</table>";
+
+  } else {
+      echo "User not found in database.";
+  }
+
+}
+}
+?>
+
+
 
 
 <?php include "footer-user.php"; ?>
