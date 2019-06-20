@@ -31,11 +31,11 @@
 			}
 
 			//get the selection filters from input fields
-			$organismname = (!empty($_POST['organismname']) ? $connection->real_escape_string($_POST['organismname']) : false);
-			$species = (!empty($_POST['species']) ? $connection->real_escape_string($_POST['species']) : false);
-			$habitat = (!empty($_POST['habitat']) ? $connection->real_escape_string($_POST['habitat']) : false);  
-			$primarycolor = (!empty($_POST['primarycolor']) ? $connection->real_escape_string($_POST['primarycolor']) : false);       
-			$rarity = (!empty($_POST['rarity']) ? $connection->real_escape_string($_POST['rarity']) : false); 
+			$organismname = (!empty($_POST['OrganismName']) ? $connection->real_escape_string($_POST['OrganismName']) : false);
+			$species = (!empty($_POST['Species']) ? $connection->real_escape_string($_POST['Species']) : false);
+			$habitat = (!empty($_POST['Habitat']) ? $connection->real_escape_string($_POST['Habitat']) : false);  
+			$primarycolor = (!empty($_POST['PrimaryColor']) ? $connection->real_escape_string($_POST['PrimaryColor']) : false);       
+			$rarity = (!empty($_POST['Rarity']) ? $connection->real_escape_string($_POST['Rarity']) : false); 
 
 			//append selection statements 
 			if($organismname){
