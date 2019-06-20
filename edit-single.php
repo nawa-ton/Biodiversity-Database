@@ -83,7 +83,7 @@
 	        	$result = mysqli_query($connection, $query);
 	        	printDropdown($result, "selectspecies");
 	        ?>
-	        <input class ='button' type='submit' value='Update' name='updateorganism'>;
+	        <input class ='button' type='submit' value='Update' name='updateorganism'>
 	    </div>
 	    <div>
 	        <label>Location</label>
@@ -92,7 +92,7 @@
 	        	$result = mysqli_query($connection, $query);
 	        	printDropdown($result, "selectlocation");
 	        ?>
-	        <input class ='button' type='submit' value='Update' name='updatelocation'>;
+	        <input class ='button' type='submit' value='Update' name='updatelocation'>
 	    </div>
 	</form>	
 
