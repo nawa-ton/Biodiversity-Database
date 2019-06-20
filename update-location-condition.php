@@ -59,7 +59,6 @@ $locationquery = "SELECT * FROM location";
 $locationresult = mysqli_query($connection, $locationquery);
 $locationcolumns = ["locationname", "address", "environment"];
 if ($locationresult) {
-	echo "Locations";
 	printTable($locationresult, $locationcolumns);
 }
 
