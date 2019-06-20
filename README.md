@@ -25,3 +25,7 @@ CSS & Jquery:
 
 Project Checklist: 
 https://docs.google.com/spreadsheets/d/1aRqdp6cg0UCQVjWawG1vqUn3zZLzOk1cYETT6WzaGr8/edit#gid=0
+
+Guest Homepage Screenshot:
+![homepage screenshot](https://user-images.githubusercontent.com/45963788/59886725-fb1d4680-9374-11e9-8b1a-8fefd40bba0b.png)
+
