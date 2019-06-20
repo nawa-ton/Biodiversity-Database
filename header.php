@@ -21,7 +21,7 @@
 				min-height: 60vh;
 				width: 100%;
 				overflow: auto;
-				background-color: #42f4ce;
+				background-color: #7FA293;
 				padding: 100px;
 				display: flex;
 			    justify-content: center;
@@ -55,7 +55,7 @@
 			/* Link */
 			a{
 				text-decoration: none;
-				color: #1e987e;
+				color: #3F6357;
 			}
 
 			a:hover{
@@ -73,7 +73,7 @@
 
 
 		   	.navlink li > a:hover{
-				background-color: #1e987e;
+				background-color: #3F6357;
 				transition: background-color 0.5s;
 			    }
 			
@@ -134,7 +134,7 @@
 
 		    .button {
 		        margin-top: 5px;		        
-		        background-color: #1e987e;
+		        background-color: #3F6357;
 		        border: none;
 		        color: #fff;
 		        padding: 10px 15px;
@@ -146,7 +146,7 @@
 		    }
 
 		    .button:hover{
-		    	background-color: #3c4442;
+		    	background-color: #232F2B;
 		    	transition: background-color 0.5s;
 		    }
 
@@ -186,7 +186,7 @@
 			}
 
 			th {
-				background-color: #42f4ce;
+				background-color: #7FA293;
 			}
 
 		</style>
