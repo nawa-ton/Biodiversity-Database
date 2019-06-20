@@ -80,6 +80,9 @@
 		<input class ="button" type="submit" value="Submit" name="organismsubmit">
 	</form>
 </section>
-<?php include "organism-query.php";?>
+<section>
+	<?php include "organism-query.php";?>
+
+</section>	
 
 <?php include "footer-guest.php"; ?>
