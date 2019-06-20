@@ -54,6 +54,14 @@
 include('connect.php');
 include('phpfunction.php');
 
+$locationquery = "SELECT * FROM location";
+$locationresult = mysqli_query($connection, $locationquery);
+$locationcolumns = ["locationname", "address", "environment"];
+if ($locationresult) {
+	echo "Locations";
+	printTable($locationresult, $locationcolumns);
+}
+
 
 if (isset($_POST['updatesubmit'])) {
 	$locationcondition = $_POST['LocationCondition'];
