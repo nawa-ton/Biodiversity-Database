@@ -205,6 +205,7 @@
 
 		<input class ="button" type="submit" value="Create" name="createsubmit">
 </form>
+<?php include "sighting.php"; ?>
 </section>
-<?php include "sighting.php";
-      include "footer-user.php"; ?>
+
+<?php include "footer-user.php"; ?>
