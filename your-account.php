@@ -1,12 +1,11 @@
 <?php 
-	session_start();
-	if (isset($_SESSION['user_id']) && $_SESSION['user_id']>=0) {
-		$userid = $_SESSION['user_id'];
-	} else {
-		header("Location: http://localhost/login.php");
-	}	
+	session_start(); 
+ 	$userid = $_SESSION['user_id'];
 ?>
+
 <?php include "header.php"; ?>
+
+<section>
 
 <h2>Your Account</h2>
 
@@ -28,9 +27,9 @@
 		if($name && $email && $password){
 			$query="update user set name='$name', email='$email', password='$password' where userid=".$userid;
 			$result = mysqli_query($connection, $query);
-			echo "<p class='confirmmsg'>Your account info is updated</p>";
+			echo "<h3 class='confirmmsg'>Your account info is updated</h3>";
 		}else{
-			echo "<p class='confirmmsg'>Name, Email and Password cannot be left blank.</p>";
+			echo "<h3 class='confirmmsg'>Name, Email and Password cannot be left blank.</h3>";
 		}
 
 		
@@ -55,4 +54,8 @@
 ?>
 
 <div class="resultposition"></div>
+
+</section>
+
+
 <?php include "footer-user.php"; ?>

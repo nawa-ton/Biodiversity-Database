@@ -10,13 +10,7 @@ if ( isset( $_SESSION['user_id']) && $_SESSION['user_id']>=0 ) {
     header("Location: http://localhost/login.php");
 }
 ?>
-	<ul id="useraction">
-		<li><a href="report-sighting.php">Report Sighting</a></li>
-		<li><a href="edit-delete.php">Edit/Delete Sighting</a></li>
-		<li><a href="update-location-condition.php">Update Location Condition</a></li>
-		<li><a href="your-account.php">Your Account</a></li>
-		<li><a href="login.php">Log Out</a></li>
-	</ul>
+<section>
 <h2>Search Organism</h2>	
 	<form id="viewForm" method="POST" action="user-homepage.php">
 
@@ -94,5 +88,5 @@ if ( isset( $_SESSION['user_id']) && $_SESSION['user_id']>=0 ) {
 	</form>
 
 	<?php include "organism-query.php";?>
-	
+</section>		
 <?php include "footer-user.php"; ?>

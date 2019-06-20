@@ -1,5 +1,5 @@
 <?php include "header.php"; ?>
-
+<section>
 	<ul id="accountlink">
 		<li><a href="register.php">Register</a></li>
 		<li><a href="login.php">Log in</a></li>
@@ -79,6 +79,7 @@
 		</div>
 		<input class ="button" type="submit" value="Submit" name="organismsubmit">
 	</form>
+</section>
 <?php include "organism-query.php";?>
 
 <?php include "footer-guest.php"; ?>

@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+<section>
 	<h2>Users Account</h2>
 	<form id="searchUsersForm" method="POST" action="admin-users-account.php">
 		<div>
@@ -100,7 +101,7 @@
 
 ?>
 
-
+</section>
 
 
 <?php include "footer-user.php"; ?>

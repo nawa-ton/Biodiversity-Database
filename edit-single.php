@@ -4,6 +4,7 @@
 ?>
 
 <?php include "header.php"; ?>
+<section class="aligncenter">
 
 <?php
 	
@@ -70,10 +71,11 @@
 	}
 
 ?>
-
-
+</section>
+<section>
+<h2>Edit Organism/Location</h2>
 	<form id="editSighting" method="POST" action="<?php if(isset($_GET['user']) && isset($_GET['sid'])){echo 'edit-single.php?sid='.$id.'&user='. $_GET['user'];} ?>">
-		<h3>Edit Organism/Location</h3>
+		
 		<div>
 	      	<label>Organism</label>
 	        <?php 
@@ -96,5 +98,7 @@
 
 <div class="resultposition"></div>
 
-<a href="edit-delete.php">Back to Edit/Delete</a>
+<a style="text-align:center;" href="edit-delete.php">Back to Edit/Delete</a>
+
+</section>
 <?php include "footer-user.php"; ?>

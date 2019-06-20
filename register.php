@@ -1,5 +1,5 @@
 <?php include "header.php"; ?>
-
+<section>
 	<h2>Create Account</h2>
 
 	<!-- ******** Add message to confirm successdul update. With log in link *********-->
@@ -54,5 +54,5 @@ if(isset($_POST['submit'])){
 }
     ?>
 
-
+</section>
 <?php include "footer-guest.php"; ?>

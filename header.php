@@ -14,20 +14,68 @@
 			}
 
 			main {
+				box-sizing: border-box;
 				margin-top: 1em;
 				margin-bottom: 1em;
-				min-height: 80vh;
+				min-height: 60vh;
 				width: 100%;
 				overflow: auto;
+				background-color: #42f4ce;
+				padding: 100px;
+				display: flex;
+			    justify-content: center;
+			    flex-direction: column;
 			}
 
 			.viewResults{
 				margin-top: 60px;
 			}
 
+			section {
+				margin: auto;
+			    width: 65%;
+			    background: white;
+			    display: flex;
+			    flex-direction: column;
+			    justify-content: center;
+			    box-shadow: 0 8px 6px -6px black;
+			    padding: 30px;
+			}
+
+			.aligncenter{
+				text-align: center;
+			}
+
+			footer {
+				text-align: center;
+				padding: 30px 0;
+			}
+
 			/* Link */
+			a{
+				text-decoration: none;
+				color: #1e987e;
+			}
+
+			a:hover{
+				color: gray;
+			}
+
+			.navlink li > a {
+				display: inline-block;
+				padding: 7px 35px;
+			    margin: 10px;
+			    background: black;
+			    text-decoration: none;
+			    color: white;
+			}
 
 
+		   	.navlink li > a:hover{
+				background-color: #1e987e;
+				transition: background-color 0.5s;
+			    }
+			
 			/* text*/
 			.remark{
 				color: red;
@@ -35,12 +83,35 @@
 
 			ul {
 				list-style-type: none;
-    			padding-inline-start: 0;
-    			line-height: 1.5em;
+    				padding-inline-start: 0;
+    				line-height: 1.5em;
+    				margin-bottom: 40px;
+			}
+
+			.navlink{
+				display: flex;
+    				justify-content: center;
 			}
 
 			.confirmmsg{
 				color: #c44b23;
+			}
+
+			h1{
+			    font-size: 2.5em;
+			}
+
+			h2{
+			    display: block;
+			    padding: 30px;
+			    background: black;
+			    color: white;
+			    margin-bottom: 60px;
+			    margin-top: 0;
+			}
+
+			h1, h2, h3, h5{
+				text-align: center;
 			}
 
 			/*added by nawa*/
@@ -49,23 +120,36 @@
 			}
 
 			/* form */
+			form{
+				margin: auto;
+				padding-bottom: 20px;
+			}
+
 			label{
-		        display: block;
-		        margin-bottom: 3px;
-		        font-weight: bold;
-		    }
+		       		display: block;
+		        	margin-bottom: 3px;
+		        	font-weight: bold;
+		    	}
 
 		    .button {
 		        margin-top: 5px;		        
-		        background-color: #2623c4;
+		        background-color: #1e987e;
+		        border: none;
 		        color: #fff;
-		        padding: 5px 15px;
+		        padding: 10px 15px;
 		        /* added by nawa */
-				margin-bottom: 20px;
-				font-size: 1em;
+			margin-bottom: 20px;
+			font-size: 1em;
+			cursor: pointer;
+			font-weight: bold;
 		    }
 
-		    form, form div {
+		    .button:hover{
+		    	background-color: #3c4442;
+		    	transition: background-color 0.5s;
+		    }
+
+		    form div {
 		    	margin-bottom: 15px;
 		    }
 
@@ -82,11 +166,8 @@
 			}
 
 			#editSighting{
-			    background-color: #d6d6d6;
-			    padding: 15px 30px;
-			    width: 60vh;
+			    text-align: center;
 			}
-
 			/* table */
 
 			table {
@@ -104,7 +185,7 @@
 			}
 
 			th {
-				background-color: #bebdff;
+				background-color: #42f4ce;
 			}
 
 		</style>

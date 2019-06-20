@@ -4,6 +4,7 @@
 ?>
 
 <?php include "header.php"; ?>
+<section>
 	<h2>Edit/Delete Organism Sighting</h2>
 
 	<form id="searchEditDeleteForm" method="POST" action="<?php if(isset($_GET['user'])){echo 'edit-delete.php?user='. $_GET['user'];} ?>">
@@ -104,6 +105,6 @@
 
 ?>
 
-
+</section>
 
 <?php include "footer-user.php"; ?>

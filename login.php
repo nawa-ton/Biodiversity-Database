@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
 
 include "header.php";
 ?>
-
+<section>
 	<h2>Log in</h2>
 	<form id="loginForm" method="POST" action="login.php">
 
@@ -58,5 +58,5 @@ include "header.php";
 
 	<p><a href="register.php">Register</a> </p>
 
-
+</section>
 <?php include "footer-guest.php"; ?>
