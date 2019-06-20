@@ -56,7 +56,5 @@ include "header.php";
 
 	</form>
 
-	<p><a href="register.php">Register</a> </p>
-
 </section>
 <?php include "footer-guest.php"; ?>
