@@ -86,7 +86,7 @@ if ( isset( $_SESSION['user_id']) && $_SESSION['user_id']>=0 ) {
 
 		<input class ="button" type="submit" value="Submit" name="organismsubmit">
 	</form>
-
+</section>	
 	<?php include "organism-query.php";?>
-</section>		
+	
 <?php include "footer-user.php"; ?>
