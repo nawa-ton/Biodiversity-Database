@@ -1,4 +1,6 @@
-<?php include "header.php"; ?>
+<?php include "header.php"; 
+ echo "<h3>Administrator</h3>"
+?>
 <section>
 	<h2>Users Account</h2>
 	<form id="searchUsersForm" method="POST" action="admin-users-account.php">
