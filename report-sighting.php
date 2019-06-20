@@ -5,7 +5,7 @@
 
 
 <?php include "header.php"; ?>
-
+<section>
 	<h2>Report Sighting</h2>
 	<h5>* indicates required field</h5>
 
@@ -205,6 +205,6 @@
 
 		<input class ="button" type="submit" value="Create" name="createsubmit">
 </form>
-
+</section>
 <?php include "sighting.php";
       include "footer-user.php"; ?>
