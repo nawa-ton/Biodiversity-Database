@@ -40,7 +40,7 @@ CREATE TABLE user(
 CREATE TABLE organism( 	
 	Species VARCHAR(30),
 	OrganismName VARCHAR(30),
-	Habitat VARCHAR(30),
+	Habitat VARCHAR(100),
 	PRIMARY KEY (Species)
 );
 
