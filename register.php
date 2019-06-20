@@ -36,6 +36,7 @@ if(isset($_POST['submit'])){
 
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			echo "Please enter a valid email.";
+			include "footer-guest.php";
 			return;
 		}
 
