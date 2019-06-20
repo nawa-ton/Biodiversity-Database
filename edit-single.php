@@ -40,9 +40,9 @@
 		  	
 		echo "<p><span class='bold'>Report ID: </span>".$id."</p>";
 
-		$selection="select o.species as Species, s.locationName as Location, o.OrganismName as Organism_Name, o.Habitat, ov.PrimaryColor as Color, ov.Rarity";
-		$from=" from sighting_report s, organism o, organism_variation ov";
-		$projection=" where s.sid = ".$id." and s.species = o.species and ov.species = o.species";
+		$selection="select o.species as Species, s.locationName as Location, o.OrganismName as Organism_Name, o.Habitat";
+		$from=" from sighting_report s, organism o";
+		$projection=" where s.sid = ".$id." and s.species = o.species";
 		$query = "";
 		if(checkOrganismType("animal", $connection, $id)){
 			$selection.=", a.PrimaryDiet as Diet, a.Aggresiveness, a.health, a.sound";
