@@ -75,6 +75,7 @@ if(! $insert_dependee_query ) {
 // insert animal
 	if($organismtype == "animal"){
 		$eat = $_POST['eat'];
+		$prey = $_POST['Eats'];
 		$diet = $_POST['Diet'];
 		$aggresiveness = $_POST['Aggressiveness'];
 		$health = $_POST['Health'];
@@ -87,9 +88,9 @@ if(! $insert_dependee_query ) {
 		}
 
     if($eat == "predator"){
-		$animal_eats_query = "INSERT INTO animal_Eats (Species_Eats, Species_Eaten) VALUES ('$species', '$Eats')";
+		$animal_eats_query = "INSERT INTO animal_Eats (Species_Eats, Species_Eaten) VALUES ('$species', '$prey')";
+		mysqli_query($connection, $animal_eats_query);
 		}
-
 	}
 
 
