@@ -4,7 +4,7 @@ Go to http://localhost/phpmyadmin/server_databases.php and create new database.
 Run initialize-master.sql script to create and populate tables in MySQL.
 Change the values of db variables in connect.php to your database info (eg. replace root in $dbpass = "root" to your own password).
 Go to http://localhost/check-connection.php to check if database is connected.
-Go to any of the pages below.
+Go to any of the pages below to browse around.
 
 There are 10 php pages so far:
 - guest-homepage.php: allow guest user to make queries on organism
