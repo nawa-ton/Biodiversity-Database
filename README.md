@@ -1,11 +1,10 @@
 # Biodiversity Query Project
 Set up:
-Install XAMPP and start Apache and MYSQL
-Go to http://localhost/phpmyadmin/server_databases.php and create new database called biodiversity 
-Run initialize-master.sql script to create and populate tables in MySQL
-Move all php files to the htdocs folder in xampp
-Go to http://localhost/check-connection.php to check if database is connected
-Go to any of the pages below through local host
+Go to http://localhost/phpmyadmin/server_databases.php and create new database.
+Run initialize-master.sql script to create and populate tables in MySQL.
+Change the values of db variables in connect.php to your database info (eg. replace root in $dbpass = "root" to your own password).
+Go to http://localhost/check-connection.php to check if database is connected.
+Go to any of the pages below.
 
 There are 10 php pages so far:
 - guest-homepage.php: allow guest user to make queries on organism
