@@ -27,6 +27,7 @@
 		if($name && $email && $password){
 			$query="update user set name='$name', email='$email', password='$password' where userid=".$userid;
 			$result = mysqli_query($connection, $query);
+			$_SESSION['user_name']=$name;
 			echo "<h3 class='confirmmsg'>Your account info is updated</h3>";
 		}else{
 			echo "<h3 class='confirmmsg'>Name, Email and Password cannot be left blank.</h3>";
